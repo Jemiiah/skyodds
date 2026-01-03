@@ -2,10 +2,8 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { Sparkline } from "./sparkline";
 import { cn } from "@/lib/utils";
-import { AlertTriangle, Clock, XCircle } from "lucide-react";
 
 // --- TYPES ---
 export type SubMarket = {
@@ -14,14 +12,15 @@ export type SubMarket = {
   icon: any;
   probability: number;
   price: number;
+  outcomeIndex: number;
   trend: "up" | "down" | "flat";
-  history: { value: number }[]; // For the chart
+  history: { value: number }[];
 };
 
 interface SubMarketsListProps {
   markets: SubMarket[];
   selectedId: string;
-  onSelect: (id: string, side: "YES" | "NO") => void;
+  onSelect: (id: string) => void; // Removed "Side" to simplify selection logic
 }
 
 export function SubMarketsList({
@@ -33,10 +32,10 @@ export function SubMarketsList({
     <div className="border border-zinc-200 rounded-xl bg-white overflow-hidden shadow-sm">
       {/* Header */}
       <div className="grid grid-cols-12 px-6 py-3 bg-zinc-50 border-b border-zinc-200 text-xs font-mono uppercase tracking-wider text-zinc-500">
-        <div className="col-span-4">Outcome Condition</div>
-        <div className="col-span-3 text-center">Trend (24h)</div>
-        <div className="col-span-2 text-right">Prob</div>
-        <div className="col-span-3 text-right">Quick Trade</div>
+        <div className="col-span-5">Outcome Condition</div>
+        {/* <div className="col-span-3 text-center">Trend (24h)</div> */}
+        <div className="col-span-3 text-center">Prob</div>
+        <div className="col-span-4 text-right">Quick Trade</div>
       </div>
 
       {/* Rows */}
@@ -50,10 +49,10 @@ export function SubMarketsList({
               "grid grid-cols-12 items-center px-6 py-4 border-b border-zinc-100 transition-all cursor-pointer hover:bg-zinc-50",
               isSelected ? "bg-zinc-50 shadow-[inset_3px_0_0_0_#000]" : ""
             )}
-            onClick={() => onSelect(market.id, "YES")} // Default select
+            onClick={() => onSelect(market.id)}
           >
             {/* 1. Label & Icon */}
-            <div className="col-span-4 flex items-center gap-3">
+            <div className="col-span-5 flex items-center gap-3">
               <div
                 className={cn(
                   "p-2 rounded-md",
@@ -80,21 +79,21 @@ export function SubMarketsList({
             </div>
 
             {/* 2. Sparkline Chart */}
-            <div className="col-span-3 flex justify-center opacity-75 grayscale hover:grayscale-0 transition-all">
+            {/* <div className="col-span-3 flex justify-center opacity-75 grayscale hover:grayscale-0 transition-all">
               <Sparkline
                 data={market.history}
                 color={
                   market.trend === "up"
                     ? "#10b981"
                     : market.trend === "down"
-                    ? "#ef4444"
-                    : "#71717a"
+                      ? "#ef4444"
+                      : "#71717a"
                 }
               />
-            </div>
+            </div> */}
 
             {/* 3. Probability */}
-            <div className="col-span-2 text-right">
+            <div className="col-span-3 text-center">
               <span className="text-lg font-bold text-zinc-900">
                 {market.probability}%
               </span>
@@ -110,14 +109,14 @@ export function SubMarketsList({
             </div>
 
             {/* 4. Action Buttons */}
-            <div className="col-span-3 flex gap-2 justify-end">
+            <div className="col-span-4 flex gap-2 justify-end">
               <Button
                 size="sm"
                 variant="outline"
                 className="h-8 text-xs font-bold text-emerald-700 bg-emerald-50 border-emerald-200 hover:bg-emerald-100 hover:border-emerald-300"
                 onClick={(e) => {
                   e.stopPropagation();
-                  onSelect(market.id, "YES");
+                  onSelect(market.id);
                 }}
               >
                 YES {market.price}¢
@@ -128,7 +127,7 @@ export function SubMarketsList({
                 className="h-8 text-xs font-bold text-red-700 bg-red-50 border-red-200 hover:bg-red-100 hover:border-red-300"
                 onClick={(e) => {
                   e.stopPropagation();
-                  onSelect(market.id, "NO");
+                  onSelect(market.id);
                 }}
               >
                 NO {100 - market.price}¢

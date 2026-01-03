@@ -13,13 +13,9 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { cn } from "@/lib/utils";
-
-// --- TYPES ---
-// We import the SubMarket type to know what to put in the dropdown
 import { SubMarket } from "./submarket-list";
 
-// --- MOCK DATA GENERATOR ---
-// In a real app, this would be a specialized hook: useTopHolders(subMarketId)
+// --- MOCK DATA GENERATOR (Placeholder for Subgraph Query) ---
 const getHoldersForMarket = (marketId: string) => {
   if (marketId === "cancelled") {
     return {
@@ -34,7 +30,6 @@ const getHoldersForMarket = (marketId: string) => {
       ],
     };
   }
-  // Default data for other markets
   return {
     YES: [
       { name: "ScottyNooo", shares: "14,985", color: "bg-emerald-500" },
@@ -49,6 +44,7 @@ const getHoldersForMarket = (marketId: string) => {
   };
 };
 
+// Placeholder Activity Data
 const ACTIVITY = [
   {
     user: "Eia",
@@ -83,16 +79,15 @@ const ACTIVITY = [
 ];
 
 interface MarketTabsProps {
+  flightId: string; // Added real flight ID
   submarkets: SubMarket[];
 }
 
-export function MarketTabs({ submarkets }: MarketTabsProps) {
-  // Default to the first submarket in the list
+export function MarketTabs({ flightId, submarkets }: MarketTabsProps) {
   const [selectedMarketId, setSelectedMarketId] = useState<string>(
     submarkets[0]?.id || ""
   );
 
-  // Get data based on selection
   const currentHolders = getHoldersForMarket(selectedMarketId);
 
   return (
@@ -174,7 +169,6 @@ export function MarketTabs({ submarkets }: MarketTabsProps) {
 
         {/* --- TOP HOLDERS TAB --- */}
         <TabsContent value="holders" className="p-0 m-0">
-          {/* DROPDOWN FILTER BAR */}
           <div className="p-4 border-b border-zinc-100 bg-white flex items-center gap-3">
             <span className="text-xs font-bold text-zinc-500 uppercase tracking-wider">
               Filter by Market:
@@ -197,7 +191,6 @@ export function MarketTabs({ submarkets }: MarketTabsProps) {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-zinc-200">
-            {/* YES Holders */}
             <div className="p-6">
               <h4 className="text-xs font-bold text-zinc-500 uppercase tracking-wider mb-4 flex justify-between">
                 <span>Yes Holders (Long)</span>
@@ -224,7 +217,6 @@ export function MarketTabs({ submarkets }: MarketTabsProps) {
               </div>
             </div>
 
-            {/* NO Holders */}
             <div className="p-6">
               <h4 className="text-xs font-bold text-zinc-500 uppercase tracking-wider mb-4 flex justify-between">
                 <span>No Holders (Short)</span>

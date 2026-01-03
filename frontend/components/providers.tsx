@@ -7,9 +7,9 @@ import { ReactNode, useState } from "react";
 
 // Simple Wagmi Config for Mantle
 const config = createConfig({
-  chains: [mantle, mantleSepoliaTestnet],
+  chains: [mantleSepoliaTestnet],
   transports: {
-    [mantle.id]: http(),
+    // [mantle.id]: http(),
     [mantleSepoliaTestnet.id]: http(),
   },
 });
