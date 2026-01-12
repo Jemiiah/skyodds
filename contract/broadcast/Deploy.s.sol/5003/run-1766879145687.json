@@ -4,7 +4,7 @@
       "hash": "0xb501432fdcde4ab0141308a8b35ead0f1a2da73216fd1d36caf1d1ac0f89928a",
       "transactionType": "CREATE",
       "contractName": "MockERC20",
-      "contractAddress": "0xfaec032f2e8c85da9d04b06947a6bdcf02ad7a71",
+      "contractAddress": "0xAB6a56DA5c42976953FE245F478f0b183B2479BF",
       "function": null,
       "arguments": null,
       "transaction": {
@@ -22,10 +22,10 @@
       "hash": "0x50ce995e42c3a20d5fba56edb73cba969ac24a723b105bb1451feb05c942a10a",
       "transactionType": "CREATE",
       "contractName": "SkyOdds",
-      "contractAddress": "0x8b87e271fb390fe7db2ce154e49096f72f6be507",
+      "contractAddress": "0x6bB34Ad2268F11d93CCD065a4D79826584948B03",
       "function": null,
       "arguments": [
-        "0xFAEC032f2E8c85Da9d04b06947a6BdCf02Ad7a71",
+        "0xAB6a56DA5c42976953FE245F478f0b183B2479BF",
         "0x5c24d44ea5c8324F71b5147D9AAc500a90526750"
       ],
       "transaction": {
@@ -46,7 +46,7 @@
       "cumulativeGasUsed": "0x7227e8fa",
       "logs": [
         {
-          "address": "0xfaec032f2e8c85da9d04b06947a6bdcf02ad7a71",
+          "address": "0xAB6a56DA5c42976953FE245F478f0b183B2479BF",
           "topics": [
             "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
             "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -62,7 +62,7 @@
           "removed": false
         },
         {
-          "address": "0xfaec032f2e8c85da9d04b06947a6bdcf02ad7a71",
+          "address": "0xAB6a56DA5c42976953FE245F478f0b183B2479BF",
           "topics": [
             "0xddf252ad1be2c89b69c2b068fc378daa952ba7f163c4a11628f55a4df523b3ef",
             "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -88,7 +88,7 @@
       "effectiveGasPrice": "0x1312d01",
       "from": "0x5c24d44ea5c8324f71b5147d9aac500a90526750",
       "to": null,
-      "contractAddress": "0xfaec032f2e8c85da9d04b06947a6bdcf02ad7a71",
+      "contractAddress": "0xAB6a56DA5c42976953FE245F478f0b183B2479BF",
       "l1Fee": "0xfa984f",
       "l1FeeScalar": "0.01",
       "l1GasPrice": "0xb",
@@ -100,7 +100,7 @@
       "cumulativeGasUsed": "0x29509eb49",
       "logs": [
         {
-          "address": "0x8b87e271fb390fe7db2ce154e49096f72f6be507",
+          "address": "0x6bB34Ad2268F11d93CCD065a4D79826584948B03",
           "topics": [
             "0x8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e0",
             "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -116,7 +116,7 @@
           "removed": false
         },
         {
-          "address": "0x8b87e271fb390fe7db2ce154e49096f72f6be507",
+          "address": "0x6bB34Ad2268F11d93CCD065a4D79826584948B03",
           "topics": [
             "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
             "0x0000000000000000000000000000000000000000000000000000000000000000",
@@ -133,7 +133,7 @@
           "removed": false
         },
         {
-          "address": "0x8b87e271fb390fe7db2ce154e49096f72f6be507",
+          "address": "0x6bB34Ad2268F11d93CCD065a4D79826584948B03",
           "topics": [
             "0x2f8788117e7eff1d82e926ec794901d17c78024a50270940304540a733656f0d",
             "0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775",
@@ -160,7 +160,7 @@
       "effectiveGasPrice": "0x1312d01",
       "from": "0x5c24d44ea5c8324f71b5147d9aac500a90526750",
       "to": null,
-      "contractAddress": "0x8b87e271fb390fe7db2ce154e49096f72f6be507",
+      "contractAddress": "0x6bB34Ad2268F11d93CCD065a4D79826584948B03",
       "l1Fee": "0x5402fbf",
       "l1FeeScalar": "0.01",
       "l1GasPrice": "0xb",

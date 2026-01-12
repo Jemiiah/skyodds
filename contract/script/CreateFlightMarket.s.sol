@@ -6,7 +6,7 @@ import "../src/SkyOdds.sol";
 import "../src/mock/MockERC20.sol";
 
 contract GetFlightInfo is Script {
-    address constant SKYODDS_ADDRESS = 0x8B87E271FB390FE7db2CE154e49096f72f6BE507;
+    address constant SKYODDS_ADDRESS = 0x6bB34Ad2268F11d93CCD065a4D79826584948B03;
 
     function run() external {
         vm.startBroadcast();
@@ -15,7 +15,13 @@ contract GetFlightInfo is Script {
 
         // Create a new test market
         console.log("Step 2: Creating new test market...");
-        bytes32 flightId = market.createFlightMarket("TEST456", "JFK", "LAX", "AA", block.timestamp + 2 hours, 0);
+        // uint256 mayStart = block.timestamp + 108 days; // May 2026
+
+        bytes32 flightId = market.createFlightMarket("TEST789", "JFK", "LAX", "AA", block.timestamp + 30 days, 0);
+        // bytes32 flightId = market.createFlightMarket("UA2547", "ORD", "LAX", "UA", mayStart, 0);
+        // bytes32 flightId = market.createFlightMarket("DL4892", "JFK", "LHR", "DL", mayStart + 10 days, 0);
+        // bytes32 flightId = market.createFlightMarket("AA1653", "MIA", "DCA", "AA", mayStart + 28 days, 0);
+
         console.log("Market created:", vm.toString(flightId));
         console.log("");
 

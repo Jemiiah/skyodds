@@ -7,8 +7,8 @@ import "../src/mock/MockERC20.sol";
 
 contract TestDeployedContract is Script {
     // Replace with your deployed addresses
-    address constant TOKEN_ADDRESS = 0xFAEC032f2E8c85Da9d04b06947a6BdCf02Ad7a71;
-    address constant SKYODDS_ADDRESS = 0x8B87E271FB390FE7db2CE154e49096f72f6BE507;
+    address constant TOKEN_ADDRESS = 0xAB6a56DA5c42976953FE245F478f0b183B2479BF;
+    address constant SKYODDS_ADDRESS = 0x6bB34Ad2268F11d93CCD065a4D79826584948B03;
 
     MockERC20 token;
     SkyOdds market;

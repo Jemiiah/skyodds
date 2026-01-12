@@ -157,6 +157,7 @@ contract SkyOdds is Ownable, ReentrancyGuard, Pausable, AccessControl {
 
     // ============ Core Functions ============
 
+    // TODO: Restrict to onlyRole(ADMIN_ROLE)
     function createFlightMarket(
         string memory flightNumber,
         string memory departureCode,
@@ -164,7 +165,7 @@ contract SkyOdds is Ownable, ReentrancyGuard, Pausable, AccessControl {
         string memory airlineCode,
         uint256 scheduledDeparture,
         uint256 liquidityParameter
-    ) external onlyRole(ADMIN_ROLE) whenNotPaused returns (bytes32) {
+    ) external whenNotPaused returns (bytes32) {
         require(scheduledDeparture > block.timestamp, "Departure must be in future");
         require(bytes(flightNumber).length > 0, "Invalid flight number");
 
@@ -342,7 +343,9 @@ contract SkyOdds is Ownable, ReentrancyGuard, Pausable, AccessControl {
         return uint256(price.intoInt256());
     }
 
-    function resolveMarket(bytes32 flightId, Outcome actualOutcome) external onlyOracleResolver marketExists(flightId) {
+    // TODO: restrict to just oracle resolver
+    //  onlyOracleResolver
+    function resolveMarket(bytes32 flightId, Outcome actualOutcome) external marketExists(flightId) {
         Flight storage flight = flights[flightId];
         require(flight.outcome == Outcome.Unresolved, "Already resolved");
         require(!flight.isCancelled, "Market is cancelled");
