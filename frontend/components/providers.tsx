@@ -2,14 +2,13 @@
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider, createConfig, http } from "wagmi";
-import { mantle, mantleSepoliaTestnet } from "wagmi/chains";
+import { mantleSepoliaTestnet } from "wagmi/chains";
 import { ReactNode, useState } from "react";
 
 // Simple Wagmi Config for Mantle
 const config = createConfig({
   chains: [mantleSepoliaTestnet],
   transports: {
-    // [mantle.id]: http(),
     [mantleSepoliaTestnet.id]: http(),
   },
 });
@@ -23,3 +22,17 @@ export function Providers({ children }: { children: ReactNode }) {
     </WagmiProvider>
   );
 }
+
+// "use client";
+
+// import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+// import { ReactNode, useState } from "react";
+
+// export function Providers({ children }: { children: ReactNode }) {
+//   const [queryClient] = useState(() => new QueryClient());
+
+//   return (
+//     // REMOVED WagmiProvider here. ParticleConnectkit handles it.
+//     <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
+//   );
+// }

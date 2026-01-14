@@ -1,31 +1,28 @@
 "use client";
-
-import { useAccount, useConnection, useReadContract } from "wagmi";
-import { mockUsdcAbi } from "./generated";
+import { useAccount } from "@particle-network/connectkit";
+import { mockUsdcAbi, mockUsdcAddress } from "./generated";
 import { formatUnits } from "viem";
-
-// The MockUSDC address you provided earlier
-const USDC_ADDRESS = "0xFAEC032f2E8c85Da9d04b06947a6BdCf02Ad7a71";
+import { useReadContract } from "wagmi";
 
 export function useUserBalance() {
-  const { address } = useConnection();
+  const { address, isConnected } = useAccount();
 
   const {
     data: balance,
     isLoading,
     refetch,
+    isRefetching,
   } = useReadContract({
-    address: USDC_ADDRESS,
+    address: mockUsdcAddress,
     abi: mockUsdcAbi,
     functionName: "balanceOf",
     args: [address as `0x${string}`],
     query: {
       enabled: !!address,
-      refetchInterval: 5000, // Refresh every 5s to catch faucet/bet updates
+      refetchInterval: 60000,
     },
   });
 
-  // Format: 6 decimals for USDC
   const formattedBalance = balance
     ? parseFloat(formatUnits(balance as bigint, 6)).toLocaleString(undefined, {
         minimumFractionDigits: 2,
@@ -33,5 +30,5 @@ export function useUserBalance() {
       })
     : "0.00";
 
-  return { balance: formattedBalance, isLoading, refetch };
+  return { balance: formattedBalance, isLoading, refetch, isRefetching };
 }

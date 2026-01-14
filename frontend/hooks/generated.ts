@@ -3,244 +3,244 @@ import {
   createUseWriteContract,
   createUseSimulateContract,
   createUseWatchContractEvent,
-} from 'wagmi/codegen'
+} from "wagmi/codegen";
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // MockUSDC
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 export const mockUsdcAbi = [
-  { type: 'constructor', inputs: [], stateMutability: 'nonpayable' },
+  { type: "constructor", inputs: [], stateMutability: "nonpayable" },
   {
-    type: 'function',
+    type: "function",
     inputs: [
-      { name: 'owner', internalType: 'address', type: 'address' },
-      { name: 'spender', internalType: 'address', type: 'address' },
+      { name: "owner", internalType: "address", type: "address" },
+      { name: "spender", internalType: "address", type: "address" },
     ],
-    name: 'allowance',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
+    name: "allowance",
+    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [
-      { name: 'spender', internalType: 'address', type: 'address' },
-      { name: 'value', internalType: 'uint256', type: 'uint256' },
+      { name: "spender", internalType: "address", type: "address" },
+      { name: "value", internalType: "uint256", type: "uint256" },
     ],
-    name: 'approve',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-    stateMutability: 'nonpayable',
+    name: "approve",
+    outputs: [{ name: "", internalType: "bool", type: "bool" }],
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
-    inputs: [{ name: 'account', internalType: 'address', type: 'address' }],
-    name: 'balanceOf',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
+    type: "function",
+    inputs: [{ name: "account", internalType: "address", type: "address" }],
+    name: "balanceOf",
+    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'decimals',
-    outputs: [{ name: '', internalType: 'uint8', type: 'uint8' }],
-    stateMutability: 'pure',
+    name: "decimals",
+    outputs: [{ name: "", internalType: "uint8", type: "uint8" }],
+    stateMutability: "pure",
   },
   {
-    type: 'function',
-    inputs: [{ name: 'amount', internalType: 'uint256', type: 'uint256' }],
-    name: 'faucet',
+    type: "function",
+    inputs: [{ name: "amount", internalType: "uint256", type: "uint256" }],
+    name: "faucet",
     outputs: [],
-    stateMutability: 'nonpayable',
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'amount', internalType: 'uint256', type: 'uint256' },
+      { name: "to", internalType: "address", type: "address" },
+      { name: "amount", internalType: "uint256", type: "uint256" },
     ],
-    name: 'mint',
+    name: "mint",
     outputs: [],
-    stateMutability: 'nonpayable',
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'name',
-    outputs: [{ name: '', internalType: 'string', type: 'string' }],
-    stateMutability: 'view',
+    name: "name",
+    outputs: [{ name: "", internalType: "string", type: "string" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'owner',
-    outputs: [{ name: '', internalType: 'address', type: 'address' }],
-    stateMutability: 'view',
+    name: "owner",
+    outputs: [{ name: "", internalType: "address", type: "address" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'renounceOwnership',
+    name: "renounceOwnership",
     outputs: [],
-    stateMutability: 'nonpayable',
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'symbol',
-    outputs: [{ name: '', internalType: 'string', type: 'string' }],
-    stateMutability: 'view',
+    name: "symbol",
+    outputs: [{ name: "", internalType: "string", type: "string" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'totalSupply',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
+    name: "totalSupply",
+    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'value', internalType: 'uint256', type: 'uint256' },
+      { name: "to", internalType: "address", type: "address" },
+      { name: "value", internalType: "uint256", type: "uint256" },
     ],
-    name: 'transfer',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-    stateMutability: 'nonpayable',
+    name: "transfer",
+    outputs: [{ name: "", internalType: "bool", type: "bool" }],
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [
-      { name: 'from', internalType: 'address', type: 'address' },
-      { name: 'to', internalType: 'address', type: 'address' },
-      { name: 'value', internalType: 'uint256', type: 'uint256' },
+      { name: "from", internalType: "address", type: "address" },
+      { name: "to", internalType: "address", type: "address" },
+      { name: "value", internalType: "uint256", type: "uint256" },
     ],
-    name: 'transferFrom',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-    stateMutability: 'nonpayable',
+    name: "transferFrom",
+    outputs: [{ name: "", internalType: "bool", type: "bool" }],
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
-    inputs: [{ name: 'newOwner', internalType: 'address', type: 'address' }],
-    name: 'transferOwnership',
+    type: "function",
+    inputs: [{ name: "newOwner", internalType: "address", type: "address" }],
+    name: "transferOwnership",
     outputs: [],
-    stateMutability: 'nonpayable',
+    stateMutability: "nonpayable",
   },
   {
-    type: 'event',
+    type: "event",
     anonymous: false,
     inputs: [
       {
-        name: 'owner',
-        internalType: 'address',
-        type: 'address',
+        name: "owner",
+        internalType: "address",
+        type: "address",
         indexed: true,
       },
       {
-        name: 'spender',
-        internalType: 'address',
-        type: 'address',
+        name: "spender",
+        internalType: "address",
+        type: "address",
         indexed: true,
       },
       {
-        name: 'value',
-        internalType: 'uint256',
-        type: 'uint256',
+        name: "value",
+        internalType: "uint256",
+        type: "uint256",
         indexed: false,
       },
     ],
-    name: 'Approval',
+    name: "Approval",
   },
   {
-    type: 'event',
+    type: "event",
     anonymous: false,
     inputs: [
       {
-        name: 'previousOwner',
-        internalType: 'address',
-        type: 'address',
+        name: "previousOwner",
+        internalType: "address",
+        type: "address",
         indexed: true,
       },
       {
-        name: 'newOwner',
-        internalType: 'address',
-        type: 'address',
+        name: "newOwner",
+        internalType: "address",
+        type: "address",
         indexed: true,
       },
     ],
-    name: 'OwnershipTransferred',
+    name: "OwnershipTransferred",
   },
   {
-    type: 'event',
+    type: "event",
     anonymous: false,
     inputs: [
-      { name: 'from', internalType: 'address', type: 'address', indexed: true },
-      { name: 'to', internalType: 'address', type: 'address', indexed: true },
+      { name: "from", internalType: "address", type: "address", indexed: true },
+      { name: "to", internalType: "address", type: "address", indexed: true },
       {
-        name: 'value',
-        internalType: 'uint256',
-        type: 'uint256',
+        name: "value",
+        internalType: "uint256",
+        type: "uint256",
         indexed: false,
       },
     ],
-    name: 'Transfer',
+    name: "Transfer",
   },
   {
-    type: 'error',
+    type: "error",
     inputs: [
-      { name: 'spender', internalType: 'address', type: 'address' },
-      { name: 'allowance', internalType: 'uint256', type: 'uint256' },
-      { name: 'needed', internalType: 'uint256', type: 'uint256' },
+      { name: "spender", internalType: "address", type: "address" },
+      { name: "allowance", internalType: "uint256", type: "uint256" },
+      { name: "needed", internalType: "uint256", type: "uint256" },
     ],
-    name: 'ERC20InsufficientAllowance',
+    name: "ERC20InsufficientAllowance",
   },
   {
-    type: 'error',
+    type: "error",
     inputs: [
-      { name: 'sender', internalType: 'address', type: 'address' },
-      { name: 'balance', internalType: 'uint256', type: 'uint256' },
-      { name: 'needed', internalType: 'uint256', type: 'uint256' },
+      { name: "sender", internalType: "address", type: "address" },
+      { name: "balance", internalType: "uint256", type: "uint256" },
+      { name: "needed", internalType: "uint256", type: "uint256" },
     ],
-    name: 'ERC20InsufficientBalance',
+    name: "ERC20InsufficientBalance",
   },
   {
-    type: 'error',
-    inputs: [{ name: 'approver', internalType: 'address', type: 'address' }],
-    name: 'ERC20InvalidApprover',
+    type: "error",
+    inputs: [{ name: "approver", internalType: "address", type: "address" }],
+    name: "ERC20InvalidApprover",
   },
   {
-    type: 'error',
-    inputs: [{ name: 'receiver', internalType: 'address', type: 'address' }],
-    name: 'ERC20InvalidReceiver',
+    type: "error",
+    inputs: [{ name: "receiver", internalType: "address", type: "address" }],
+    name: "ERC20InvalidReceiver",
   },
   {
-    type: 'error',
-    inputs: [{ name: 'sender', internalType: 'address', type: 'address' }],
-    name: 'ERC20InvalidSender',
+    type: "error",
+    inputs: [{ name: "sender", internalType: "address", type: "address" }],
+    name: "ERC20InvalidSender",
   },
   {
-    type: 'error',
-    inputs: [{ name: 'spender', internalType: 'address', type: 'address' }],
-    name: 'ERC20InvalidSpender',
+    type: "error",
+    inputs: [{ name: "spender", internalType: "address", type: "address" }],
+    name: "ERC20InvalidSpender",
   },
   {
-    type: 'error',
-    inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
-    name: 'OwnableInvalidOwner',
+    type: "error",
+    inputs: [{ name: "owner", internalType: "address", type: "address" }],
+    name: "OwnableInvalidOwner",
   },
   {
-    type: 'error',
-    inputs: [{ name: 'account', internalType: 'address', type: 'address' }],
-    name: 'OwnableUnauthorizedAccount',
+    type: "error",
+    inputs: [{ name: "account", internalType: "address", type: "address" }],
+    name: "OwnableUnauthorizedAccount",
   },
-] as const
+] as const;
 
 export const mockUsdcAddress =
-  '0xFAEC032f2E8c85Da9d04b06947a6BdCf02Ad7a71' as const
+  "0xAB6a56DA5c42976953FE245F478f0b183B2479BF" as const;
 
 export const mockUsdcConfig = {
   address: mockUsdcAddress,
   abi: mockUsdcAbi,
-} as const
+} as const;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // SkyOdds
@@ -248,844 +248,858 @@ export const mockUsdcConfig = {
 
 export const skyOddsAbi = [
   {
-    type: 'constructor',
+    type: "constructor",
     inputs: [
-      { name: '_USDCToken', internalType: 'address', type: 'address' },
-      { name: '_oracleResolver', internalType: 'address', type: 'address' },
+      { name: "_USDCToken", internalType: "address", type: "address" },
+      { name: "_oracleResolver", internalType: "address", type: "address" },
     ],
-    stateMutability: 'nonpayable',
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'ADMIN_ROLE',
-    outputs: [{ name: '', internalType: 'bytes32', type: 'bytes32' }],
-    stateMutability: 'view',
+    name: "ADMIN_ROLE",
+    outputs: [{ name: "", internalType: "bytes32", type: "bytes32" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'BASIS_POINTS',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
+    name: "BASIS_POINTS",
+    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'DEFAULT_ADMIN_ROLE',
-    outputs: [{ name: '', internalType: 'bytes32', type: 'bytes32' }],
-    stateMutability: 'view',
+    name: "DEFAULT_ADMIN_ROLE",
+    outputs: [{ name: "", internalType: "bytes32", type: "bytes32" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'DEFAULT_LIQUIDITY_PARAM',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
+    name: "DEFAULT_LIQUIDITY_PARAM",
+    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'MARKET_CLOSE_BUFFER',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
+    name: "MARKET_CLOSE_BUFFER",
+    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'PLATFORM_FEE',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
+    name: "PLATFORM_FEE",
+    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'USDCToken',
-    outputs: [{ name: '', internalType: 'contract IERC20', type: 'address' }],
-    stateMutability: 'view',
+    name: "USDCToken",
+    outputs: [{ name: "", internalType: "contract IERC20", type: "address" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [
-      { name: 'flightId', internalType: 'bytes32', type: 'bytes32' },
-      { name: 'outcome', internalType: 'enum SkyOdds.Outcome', type: 'uint8' },
+      { name: "flightId", internalType: "bytes32", type: "bytes32" },
+      { name: "outcome", internalType: "enum SkyOdds.Outcome", type: "uint8" },
       {
-        name: 'position',
-        internalType: 'enum SkyOdds.Position',
-        type: 'uint8',
+        name: "position",
+        internalType: "enum SkyOdds.Position",
+        type: "uint8",
       },
-      { name: 'cost', internalType: 'uint256', type: 'uint256' },
+      { name: "cost", internalType: "uint256", type: "uint256" },
     ],
-    name: 'calculateSharesForCost',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
+    name: "calculateSharesForCost",
+    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [
-      { name: 'flightId', internalType: 'bytes32', type: 'bytes32' },
-      { name: 'reason', internalType: 'string', type: 'string' },
+      { name: "flightId", internalType: "bytes32", type: "bytes32" },
+      { name: "user", internalType: "address", type: "address" },
     ],
-    name: 'cancelMarket',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'flightId', internalType: 'bytes32', type: 'bytes32' }],
-    name: 'claimWinnings',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'flightNumber', internalType: 'string', type: 'string' },
-      { name: 'departureCode', internalType: 'string', type: 'string' },
-      { name: 'destinationCode', internalType: 'string', type: 'string' },
-      { name: 'airlineCode', internalType: 'string', type: 'string' },
-      { name: 'scheduledDeparture', internalType: 'uint256', type: 'uint256' },
-      { name: 'liquidityParameter', internalType: 'uint256', type: 'uint256' },
-    ],
-    name: 'createFlightMarket',
-    outputs: [{ name: '', internalType: 'bytes32', type: 'bytes32' }],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'flightId', internalType: 'bytes32', type: 'bytes32' }],
-    name: 'emergencyWithdraw',
-    outputs: [],
-    stateMutability: 'nonpayable',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    name: 'flightIds',
-    outputs: [{ name: '', internalType: 'bytes32', type: 'bytes32' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: '', internalType: 'bytes32', type: 'bytes32' }],
-    name: 'flights',
+    name: "calculateWinnings",
     outputs: [
-      { name: 'flightNumber', internalType: 'string', type: 'string' },
-      { name: 'departureCode', internalType: 'string', type: 'string' },
-      { name: 'destinationCode', internalType: 'string', type: 'string' },
-      { name: 'airlineCode', internalType: 'string', type: 'string' },
-      { name: 'scheduledDeparture', internalType: 'uint256', type: 'uint256' },
-      { name: 'marketCloseTime', internalType: 'uint256', type: 'uint256' },
-      { name: 'outcome', internalType: 'enum SkyOdds.Outcome', type: 'uint8' },
-      { name: 'isCancelled', internalType: 'bool', type: 'bool' },
-      { name: 'exists', internalType: 'bool', type: 'bool' },
-      { name: 'onTimeShares', internalType: 'uint256', type: 'uint256' },
-      { name: 'delayed30Shares', internalType: 'uint256', type: 'uint256' },
-      {
-        name: 'delayed120PlusShares',
-        internalType: 'uint256',
-        type: 'uint256',
-      },
-      { name: 'cancelledShares', internalType: 'uint256', type: 'uint256' },
-      { name: 'liquidityParameter', internalType: 'uint256', type: 'uint256' },
+      { name: "payout", internalType: "uint256", type: "uint256" },
+      { name: "fee", internalType: "uint256", type: "uint256" },
+      { name: "canClaim", internalType: "bool", type: "bool" },
     ],
-    stateMutability: 'view',
+    stateMutability: "view",
   },
   {
-    type: 'function',
-    inputs: [],
-    name: 'getAllFlightIds',
-    outputs: [{ name: '', internalType: 'bytes32[]', type: 'bytes32[]' }],
-    stateMutability: 'view',
+    type: "function",
+    inputs: [
+      { name: "flightId", internalType: "bytes32", type: "bytes32" },
+      { name: "reason", internalType: "string", type: "string" },
+    ],
+    name: "cancelMarket",
+    outputs: [],
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
-    inputs: [{ name: 'flightId', internalType: 'bytes32', type: 'bytes32' }],
-    name: 'getAllPrices',
+    type: "function",
+    inputs: [{ name: "flightId", internalType: "bytes32", type: "bytes32" }],
+    name: "claimWinnings",
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    inputs: [
+      { name: "flightNumber", internalType: "string", type: "string" },
+      { name: "departureCode", internalType: "string", type: "string" },
+      { name: "destinationCode", internalType: "string", type: "string" },
+      { name: "airlineCode", internalType: "string", type: "string" },
+      { name: "scheduledDeparture", internalType: "uint256", type: "uint256" },
+      { name: "liquidityParameter", internalType: "uint256", type: "uint256" },
+    ],
+    name: "createFlightMarket",
+    outputs: [{ name: "", internalType: "bytes32", type: "bytes32" }],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    inputs: [{ name: "flightId", internalType: "bytes32", type: "bytes32" }],
+    name: "emergencyWithdraw",
+    outputs: [],
+    stateMutability: "nonpayable",
+  },
+  {
+    type: "function",
+    inputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    name: "flightIds",
+    outputs: [{ name: "", internalType: "bytes32", type: "bytes32" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    inputs: [{ name: "", internalType: "bytes32", type: "bytes32" }],
+    name: "flights",
     outputs: [
-      { name: 'onTimePrice', internalType: 'uint256', type: 'uint256' },
-      { name: 'delayed30Price', internalType: 'uint256', type: 'uint256' },
-      { name: 'delayed120PlusPrice', internalType: 'uint256', type: 'uint256' },
-      { name: 'cancelledPrice', internalType: 'uint256', type: 'uint256' },
+      { name: "flightNumber", internalType: "string", type: "string" },
+      { name: "departureCode", internalType: "string", type: "string" },
+      { name: "destinationCode", internalType: "string", type: "string" },
+      { name: "airlineCode", internalType: "string", type: "string" },
+      { name: "scheduledDeparture", internalType: "uint256", type: "uint256" },
+      { name: "marketCloseTime", internalType: "uint256", type: "uint256" },
+      { name: "outcome", internalType: "enum SkyOdds.Outcome", type: "uint8" },
+      { name: "isCancelled", internalType: "bool", type: "bool" },
+      { name: "exists", internalType: "bool", type: "bool" },
+      { name: "onTimeShares", internalType: "uint256", type: "uint256" },
+      { name: "delayed30Shares", internalType: "uint256", type: "uint256" },
+      {
+        name: "delayed120PlusShares",
+        internalType: "uint256",
+        type: "uint256",
+      },
+      { name: "cancelledShares", internalType: "uint256", type: "uint256" },
+      { name: "liquidityParameter", internalType: "uint256", type: "uint256" },
     ],
-    stateMutability: 'view',
+    stateMutability: "view",
   },
   {
-    type: 'function',
-    inputs: [{ name: 'flightId', internalType: 'bytes32', type: 'bytes32' }],
-    name: 'getFlightInfo',
+    type: "function",
+    inputs: [],
+    name: "getAllFlightIds",
+    outputs: [{ name: "", internalType: "bytes32[]", type: "bytes32[]" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    inputs: [{ name: "flightId", internalType: "bytes32", type: "bytes32" }],
+    name: "getAllPrices",
     outputs: [
-      { name: 'flightNumber', internalType: 'string', type: 'string' },
-      { name: 'departureCode', internalType: 'string', type: 'string' },
-      { name: 'destinationCode', internalType: 'string', type: 'string' },
-      { name: 'scheduledDeparture', internalType: 'uint256', type: 'uint256' },
-      { name: 'marketCloseTime', internalType: 'uint256', type: 'uint256' },
-      { name: 'outcome', internalType: 'enum SkyOdds.Outcome', type: 'uint8' },
-      { name: 'isCancelled', internalType: 'bool', type: 'bool' },
+      { name: "onTimePrice", internalType: "uint256", type: "uint256" },
+      { name: "delayed30Price", internalType: "uint256", type: "uint256" },
+      { name: "delayed120PlusPrice", internalType: "uint256", type: "uint256" },
+      { name: "cancelledPrice", internalType: "uint256", type: "uint256" },
     ],
-    stateMutability: 'view',
+    stateMutability: "view",
   },
   {
-    type: 'function',
-    inputs: [{ name: 'flightId', internalType: 'bytes32', type: 'bytes32' }],
-    name: 'getMarketShares',
+    type: "function",
+    inputs: [{ name: "flightId", internalType: "bytes32", type: "bytes32" }],
+    name: "getFlightInfo",
     outputs: [
-      { name: 'onTimeShares', internalType: 'uint256', type: 'uint256' },
-      { name: 'delayed30Shares', internalType: 'uint256', type: 'uint256' },
-      {
-        name: 'delayed120PlusShares',
-        internalType: 'uint256',
-        type: 'uint256',
-      },
-      { name: 'cancelledShares', internalType: 'uint256', type: 'uint256' },
+      { name: "flightNumber", internalType: "string", type: "string" },
+      { name: "departureCode", internalType: "string", type: "string" },
+      { name: "destinationCode", internalType: "string", type: "string" },
+      { name: "scheduledDeparture", internalType: "uint256", type: "uint256" },
+      { name: "marketCloseTime", internalType: "uint256", type: "uint256" },
+      { name: "outcome", internalType: "enum SkyOdds.Outcome", type: "uint8" },
+      { name: "isCancelled", internalType: "bool", type: "bool" },
     ],
-    stateMutability: 'view',
+    stateMutability: "view",
   },
   {
-    type: 'function',
-    inputs: [
-      { name: 'flightId', internalType: 'bytes32', type: 'bytes32' },
-      { name: 'outcome', internalType: 'enum SkyOdds.Outcome', type: 'uint8' },
-    ],
-    name: 'getPrice',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [{ name: 'role', internalType: 'bytes32', type: 'bytes32' }],
-    name: 'getRoleAdmin',
-    outputs: [{ name: '', internalType: 'bytes32', type: 'bytes32' }],
-    stateMutability: 'view',
-  },
-  {
-    type: 'function',
-    inputs: [
-      { name: 'flightId', internalType: 'bytes32', type: 'bytes32' },
-      { name: 'user', internalType: 'address', type: 'address' },
-      { name: 'outcome', internalType: 'enum SkyOdds.Outcome', type: 'uint8' },
-    ],
-    name: 'getUserPosition',
+    type: "function",
+    inputs: [{ name: "flightId", internalType: "bytes32", type: "bytes32" }],
+    name: "getMarketShares",
     outputs: [
-      { name: 'yesShares', internalType: 'uint256', type: 'uint256' },
-      { name: 'noShares', internalType: 'uint256', type: 'uint256' },
-      { name: 'totalCost', internalType: 'uint256', type: 'uint256' },
+      { name: "onTimeShares", internalType: "uint256", type: "uint256" },
+      { name: "delayed30Shares", internalType: "uint256", type: "uint256" },
+      {
+        name: "delayed120PlusShares",
+        internalType: "uint256",
+        type: "uint256",
+      },
+      { name: "cancelledShares", internalType: "uint256", type: "uint256" },
     ],
-    stateMutability: 'view',
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [
-      { name: 'role', internalType: 'bytes32', type: 'bytes32' },
-      { name: 'account', internalType: 'address', type: 'address' },
+      { name: "flightId", internalType: "bytes32", type: "bytes32" },
+      { name: "outcome", internalType: "enum SkyOdds.Outcome", type: "uint8" },
     ],
-    name: 'grantRole',
+    name: "getPrice",
+    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    inputs: [{ name: "role", internalType: "bytes32", type: "bytes32" }],
+    name: "getRoleAdmin",
+    outputs: [{ name: "", internalType: "bytes32", type: "bytes32" }],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    inputs: [
+      { name: "flightId", internalType: "bytes32", type: "bytes32" },
+      { name: "user", internalType: "address", type: "address" },
+      { name: "outcome", internalType: "enum SkyOdds.Outcome", type: "uint8" },
+    ],
+    name: "getUserPosition",
+    outputs: [
+      { name: "yesShares", internalType: "uint256", type: "uint256" },
+      { name: "noShares", internalType: "uint256", type: "uint256" },
+      { name: "totalCost", internalType: "uint256", type: "uint256" },
+    ],
+    stateMutability: "view",
+  },
+  {
+    type: "function",
+    inputs: [
+      { name: "role", internalType: "bytes32", type: "bytes32" },
+      { name: "account", internalType: "address", type: "address" },
+    ],
+    name: "grantRole",
     outputs: [],
-    stateMutability: 'nonpayable',
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [
-      { name: '', internalType: 'bytes32', type: 'bytes32' },
-      { name: '', internalType: 'address', type: 'address' },
+      { name: "", internalType: "bytes32", type: "bytes32" },
+      { name: "", internalType: "address", type: "address" },
     ],
-    name: 'hasClaimed',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-    stateMutability: 'view',
+    name: "hasClaimed",
+    outputs: [{ name: "", internalType: "bool", type: "bool" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [
-      { name: 'role', internalType: 'bytes32', type: 'bytes32' },
-      { name: 'account', internalType: 'address', type: 'address' },
+      { name: "role", internalType: "bytes32", type: "bytes32" },
+      { name: "account", internalType: "address", type: "address" },
     ],
-    name: 'hasRole',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-    stateMutability: 'view',
+    name: "hasRole",
+    outputs: [{ name: "", internalType: "bool", type: "bool" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'oracleResolver',
-    outputs: [{ name: '', internalType: 'address', type: 'address' }],
-    stateMutability: 'view',
+    name: "oracleResolver",
+    outputs: [{ name: "", internalType: "address", type: "address" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'owner',
-    outputs: [{ name: '', internalType: 'address', type: 'address' }],
-    stateMutability: 'view',
+    name: "owner",
+    outputs: [{ name: "", internalType: "address", type: "address" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'pause',
+    name: "pause",
     outputs: [],
-    stateMutability: 'nonpayable',
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'paused',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-    stateMutability: 'view',
+    name: "paused",
+    outputs: [{ name: "", internalType: "bool", type: "bool" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [
-      { name: 'flightId', internalType: 'bytes32', type: 'bytes32' },
-      { name: 'outcome', internalType: 'enum SkyOdds.Outcome', type: 'uint8' },
+      { name: "flightId", internalType: "bytes32", type: "bytes32" },
+      { name: "outcome", internalType: "enum SkyOdds.Outcome", type: "uint8" },
       {
-        name: 'position',
-        internalType: 'enum SkyOdds.Position',
-        type: 'uint8',
+        name: "position",
+        internalType: "enum SkyOdds.Position",
+        type: "uint8",
       },
-      { name: 'cost', internalType: 'uint256', type: 'uint256' },
+      { name: "cost", internalType: "uint256", type: "uint256" },
     ],
-    name: 'placeBet',
+    name: "placeBet",
     outputs: [],
-    stateMutability: 'nonpayable',
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'renounceOwnership',
+    name: "renounceOwnership",
     outputs: [],
-    stateMutability: 'nonpayable',
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [
-      { name: 'role', internalType: 'bytes32', type: 'bytes32' },
-      { name: 'callerConfirmation', internalType: 'address', type: 'address' },
+      { name: "role", internalType: "bytes32", type: "bytes32" },
+      { name: "callerConfirmation", internalType: "address", type: "address" },
     ],
-    name: 'renounceRole',
+    name: "renounceRole",
     outputs: [],
-    stateMutability: 'nonpayable',
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [
-      { name: 'flightId', internalType: 'bytes32', type: 'bytes32' },
+      { name: "flightId", internalType: "bytes32", type: "bytes32" },
       {
-        name: 'actualOutcome',
-        internalType: 'enum SkyOdds.Outcome',
-        type: 'uint8',
+        name: "actualOutcome",
+        internalType: "enum SkyOdds.Outcome",
+        type: "uint8",
       },
     ],
-    name: 'resolveMarket',
+    name: "resolveMarket",
     outputs: [],
-    stateMutability: 'nonpayable',
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [
-      { name: 'role', internalType: 'bytes32', type: 'bytes32' },
-      { name: 'account', internalType: 'address', type: 'address' },
+      { name: "role", internalType: "bytes32", type: "bytes32" },
+      { name: "account", internalType: "address", type: "address" },
     ],
-    name: 'revokeRole',
+    name: "revokeRole",
     outputs: [],
-    stateMutability: 'nonpayable',
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [
-      { name: '_newResolver', internalType: 'address', type: 'address' },
+      { name: "_newResolver", internalType: "address", type: "address" },
     ],
-    name: 'setOracleResolver',
+    name: "setOracleResolver",
     outputs: [],
-    stateMutability: 'nonpayable',
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
-    inputs: [{ name: 'interfaceId', internalType: 'bytes4', type: 'bytes4' }],
-    name: 'supportsInterface',
-    outputs: [{ name: '', internalType: 'bool', type: 'bool' }],
-    stateMutability: 'view',
+    type: "function",
+    inputs: [{ name: "interfaceId", internalType: "bytes4", type: "bytes4" }],
+    name: "supportsInterface",
+    outputs: [{ name: "", internalType: "bool", type: "bool" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [
-      { name: '', internalType: 'bytes32', type: 'bytes32' },
-      { name: '', internalType: 'enum SkyOdds.Outcome', type: 'uint8' },
+      { name: "", internalType: "bytes32", type: "bytes32" },
+      { name: "", internalType: "enum SkyOdds.Outcome", type: "uint8" },
     ],
-    name: 'totalCostByOutcome',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
+    name: "totalCostByOutcome",
+    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
-    inputs: [{ name: '', internalType: 'bytes32', type: 'bytes32' }],
-    name: 'totalDeposited',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
+    type: "function",
+    inputs: [{ name: "", internalType: "bytes32", type: "bytes32" }],
+    name: "totalDeposited",
+    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'totalFeesCollected',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
+    name: "totalFeesCollected",
+    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'totalFeesWithdrawn',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
+    name: "totalFeesWithdrawn",
+    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
-    inputs: [{ name: '', internalType: 'bytes32', type: 'bytes32' }],
-    name: 'totalPoolAmount',
-    outputs: [{ name: '', internalType: 'uint256', type: 'uint256' }],
-    stateMutability: 'view',
+    type: "function",
+    inputs: [{ name: "", internalType: "bytes32", type: "bytes32" }],
+    name: "totalPoolAmount",
+    outputs: [{ name: "", internalType: "uint256", type: "uint256" }],
+    stateMutability: "view",
   },
   {
-    type: 'function',
-    inputs: [{ name: 'newOwner', internalType: 'address', type: 'address' }],
-    name: 'transferOwnership',
+    type: "function",
+    inputs: [{ name: "newOwner", internalType: "address", type: "address" }],
+    name: "transferOwnership",
     outputs: [],
-    stateMutability: 'nonpayable',
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
+    type: "function",
     inputs: [],
-    name: 'unpause',
+    name: "unpause",
     outputs: [],
-    stateMutability: 'nonpayable',
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
-    inputs: [{ name: 'to', internalType: 'address', type: 'address' }],
-    name: 'withdrawFees',
+    type: "function",
+    inputs: [{ name: "to", internalType: "address", type: "address" }],
+    name: "withdrawFees",
     outputs: [],
-    stateMutability: 'nonpayable',
+    stateMutability: "nonpayable",
   },
   {
-    type: 'function',
-    inputs: [{ name: 'flightId', internalType: 'bytes32', type: 'bytes32' }],
-    name: 'withdrawFromCancelledMarket',
+    type: "function",
+    inputs: [{ name: "flightId", internalType: "bytes32", type: "bytes32" }],
+    name: "withdrawFromCancelledMarket",
     outputs: [],
-    stateMutability: 'nonpayable',
+    stateMutability: "nonpayable",
   },
   {
-    type: 'event',
+    type: "event",
     anonymous: false,
     inputs: [
       {
-        name: 'flightId',
-        internalType: 'bytes32',
-        type: 'bytes32',
+        name: "flightId",
+        internalType: "bytes32",
+        type: "bytes32",
         indexed: true,
       },
-      { name: 'user', internalType: 'address', type: 'address', indexed: true },
+      { name: "user", internalType: "address", type: "address", indexed: true },
       {
-        name: 'amount',
-        internalType: 'uint256',
-        type: 'uint256',
+        name: "amount",
+        internalType: "uint256",
+        type: "uint256",
         indexed: false,
       },
     ],
-    name: 'EmergencyWithdrawal',
+    name: "EmergencyWithdrawal",
   },
   {
-    type: 'event',
+    type: "event",
     anonymous: false,
     inputs: [
-      { name: 'to', internalType: 'address', type: 'address', indexed: true },
+      { name: "to", internalType: "address", type: "address", indexed: true },
       {
-        name: 'amount',
-        internalType: 'uint256',
-        type: 'uint256',
+        name: "amount",
+        internalType: "uint256",
+        type: "uint256",
         indexed: false,
       },
     ],
-    name: 'FeesWithdrawn',
+    name: "FeesWithdrawn",
   },
   {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      {
-        name: 'flightId',
-        internalType: 'bytes32',
-        type: 'bytes32',
-        indexed: true,
-      },
-      {
-        name: 'reason',
-        internalType: 'string',
-        type: 'string',
-        indexed: false,
-      },
-    ],
-    name: 'MarketCancelled',
-  },
-  {
-    type: 'event',
+    type: "event",
     anonymous: false,
     inputs: [
       {
-        name: 'flightId',
-        internalType: 'bytes32',
-        type: 'bytes32',
+        name: "flightId",
+        internalType: "bytes32",
+        type: "bytes32",
         indexed: true,
       },
       {
-        name: 'flightNumber',
-        internalType: 'string',
-        type: 'string',
-        indexed: false,
-      },
-      {
-        name: 'scheduledDeparture',
-        internalType: 'uint256',
-        type: 'uint256',
-        indexed: false,
-      },
-      {
-        name: 'marketCloseTime',
-        internalType: 'uint256',
-        type: 'uint256',
-        indexed: false,
-      },
-      {
-        name: 'liquidityParameter',
-        internalType: 'uint256',
-        type: 'uint256',
+        name: "reason",
+        internalType: "string",
+        type: "string",
         indexed: false,
       },
     ],
-    name: 'MarketCreated',
+    name: "MarketCancelled",
   },
   {
-    type: 'event',
+    type: "event",
     anonymous: false,
     inputs: [
       {
-        name: 'flightId',
-        internalType: 'bytes32',
-        type: 'bytes32',
+        name: "flightId",
+        internalType: "bytes32",
+        type: "bytes32",
         indexed: true,
       },
       {
-        name: 'outcome',
-        internalType: 'enum SkyOdds.Outcome',
-        type: 'uint8',
+        name: "flightNumber",
+        internalType: "string",
+        type: "string",
         indexed: false,
       },
       {
-        name: 'timestamp',
-        internalType: 'uint256',
-        type: 'uint256',
+        name: "scheduledDeparture",
+        internalType: "uint256",
+        type: "uint256",
+        indexed: false,
+      },
+      {
+        name: "marketCloseTime",
+        internalType: "uint256",
+        type: "uint256",
+        indexed: false,
+      },
+      {
+        name: "liquidityParameter",
+        internalType: "uint256",
+        type: "uint256",
         indexed: false,
       },
     ],
-    name: 'MarketResolved',
+    name: "MarketCreated",
   },
   {
-    type: 'event',
+    type: "event",
     anonymous: false,
     inputs: [
       {
-        name: 'oldResolver',
-        internalType: 'address',
-        type: 'address',
+        name: "flightId",
+        internalType: "bytes32",
+        type: "bytes32",
         indexed: true,
       },
       {
-        name: 'newResolver',
-        internalType: 'address',
-        type: 'address',
-        indexed: true,
+        name: "outcome",
+        internalType: "enum SkyOdds.Outcome",
+        type: "uint8",
+        indexed: false,
+      },
+      {
+        name: "timestamp",
+        internalType: "uint256",
+        type: "uint256",
+        indexed: false,
       },
     ],
-    name: 'OracleResolverUpdated',
+    name: "MarketResolved",
   },
   {
-    type: 'event',
+    type: "event",
     anonymous: false,
     inputs: [
       {
-        name: 'previousOwner',
-        internalType: 'address',
-        type: 'address',
+        name: "oldResolver",
+        internalType: "address",
+        type: "address",
         indexed: true,
       },
       {
-        name: 'newOwner',
-        internalType: 'address',
-        type: 'address',
+        name: "newResolver",
+        internalType: "address",
+        type: "address",
         indexed: true,
       },
     ],
-    name: 'OwnershipTransferred',
+    name: "OracleResolverUpdated",
   },
   {
-    type: 'event',
+    type: "event",
     anonymous: false,
     inputs: [
       {
-        name: 'account',
-        internalType: 'address',
-        type: 'address',
-        indexed: false,
-      },
-    ],
-    name: 'Paused',
-  },
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'role', internalType: 'bytes32', type: 'bytes32', indexed: true },
-      {
-        name: 'previousAdminRole',
-        internalType: 'bytes32',
-        type: 'bytes32',
+        name: "previousOwner",
+        internalType: "address",
+        type: "address",
         indexed: true,
       },
       {
-        name: 'newAdminRole',
-        internalType: 'bytes32',
-        type: 'bytes32',
+        name: "newOwner",
+        internalType: "address",
+        type: "address",
         indexed: true,
       },
     ],
-    name: 'RoleAdminChanged',
+    name: "OwnershipTransferred",
   },
   {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'role', internalType: 'bytes32', type: 'bytes32', indexed: true },
-      {
-        name: 'account',
-        internalType: 'address',
-        type: 'address',
-        indexed: true,
-      },
-      {
-        name: 'sender',
-        internalType: 'address',
-        type: 'address',
-        indexed: true,
-      },
-    ],
-    name: 'RoleGranted',
-  },
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      { name: 'role', internalType: 'bytes32', type: 'bytes32', indexed: true },
-      {
-        name: 'account',
-        internalType: 'address',
-        type: 'address',
-        indexed: true,
-      },
-      {
-        name: 'sender',
-        internalType: 'address',
-        type: 'address',
-        indexed: true,
-      },
-    ],
-    name: 'RoleRevoked',
-  },
-  {
-    type: 'event',
+    type: "event",
     anonymous: false,
     inputs: [
       {
-        name: 'flightId',
-        internalType: 'bytes32',
-        type: 'bytes32',
-        indexed: true,
-      },
-      { name: 'user', internalType: 'address', type: 'address', indexed: true },
-      {
-        name: 'outcome',
-        internalType: 'enum SkyOdds.Outcome',
-        type: 'uint8',
-        indexed: false,
-      },
-      {
-        name: 'position',
-        internalType: 'enum SkyOdds.Position',
-        type: 'uint8',
-        indexed: false,
-      },
-      {
-        name: 'shares',
-        internalType: 'uint256',
-        type: 'uint256',
-        indexed: false,
-      },
-      {
-        name: 'cost',
-        internalType: 'uint256',
-        type: 'uint256',
+        name: "account",
+        internalType: "address",
+        type: "address",
         indexed: false,
       },
     ],
-    name: 'SharesPurchased',
+    name: "Paused",
   },
   {
-    type: 'event',
+    type: "event",
     anonymous: false,
     inputs: [
+      { name: "role", internalType: "bytes32", type: "bytes32", indexed: true },
       {
-        name: 'flightId',
-        internalType: 'bytes32',
-        type: 'bytes32',
+        name: "previousAdminRole",
+        internalType: "bytes32",
+        type: "bytes32",
         indexed: true,
       },
       {
-        name: 'onTimeShares',
-        internalType: 'uint256',
-        type: 'uint256',
-        indexed: false,
-      },
-      {
-        name: 'delayed30Shares',
-        internalType: 'uint256',
-        type: 'uint256',
-        indexed: false,
-      },
-      {
-        name: 'delayed120PlusShares',
-        internalType: 'uint256',
-        type: 'uint256',
-        indexed: false,
-      },
-      {
-        name: 'cancelledShares',
-        internalType: 'uint256',
-        type: 'uint256',
-        indexed: false,
-      },
-    ],
-    name: 'SharesUpdated',
-  },
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      {
-        name: 'account',
-        internalType: 'address',
-        type: 'address',
-        indexed: false,
-      },
-    ],
-    name: 'Unpaused',
-  },
-  {
-    type: 'event',
-    anonymous: false,
-    inputs: [
-      {
-        name: 'flightId',
-        internalType: 'bytes32',
-        type: 'bytes32',
+        name: "newAdminRole",
+        internalType: "bytes32",
+        type: "bytes32",
         indexed: true,
       },
-      { name: 'user', internalType: 'address', type: 'address', indexed: true },
+    ],
+    name: "RoleAdminChanged",
+  },
+  {
+    type: "event",
+    anonymous: false,
+    inputs: [
+      { name: "role", internalType: "bytes32", type: "bytes32", indexed: true },
       {
-        name: 'payout',
-        internalType: 'uint256',
-        type: 'uint256',
+        name: "account",
+        internalType: "address",
+        type: "address",
+        indexed: true,
+      },
+      {
+        name: "sender",
+        internalType: "address",
+        type: "address",
+        indexed: true,
+      },
+    ],
+    name: "RoleGranted",
+  },
+  {
+    type: "event",
+    anonymous: false,
+    inputs: [
+      { name: "role", internalType: "bytes32", type: "bytes32", indexed: true },
+      {
+        name: "account",
+        internalType: "address",
+        type: "address",
+        indexed: true,
+      },
+      {
+        name: "sender",
+        internalType: "address",
+        type: "address",
+        indexed: true,
+      },
+    ],
+    name: "RoleRevoked",
+  },
+  {
+    type: "event",
+    anonymous: false,
+    inputs: [
+      {
+        name: "flightId",
+        internalType: "bytes32",
+        type: "bytes32",
+        indexed: true,
+      },
+      { name: "user", internalType: "address", type: "address", indexed: true },
+      {
+        name: "outcome",
+        internalType: "enum SkyOdds.Outcome",
+        type: "uint8",
         indexed: false,
       },
-      { name: 'fee', internalType: 'uint256', type: 'uint256', indexed: false },
+      {
+        name: "position",
+        internalType: "enum SkyOdds.Position",
+        type: "uint8",
+        indexed: false,
+      },
+      {
+        name: "shares",
+        internalType: "uint256",
+        type: "uint256",
+        indexed: false,
+      },
+      {
+        name: "cost",
+        internalType: "uint256",
+        type: "uint256",
+        indexed: false,
+      },
     ],
-    name: 'WinningsClaimed',
+    name: "SharesPurchased",
   },
-  { type: 'error', inputs: [], name: 'AccessControlBadConfirmation' },
   {
-    type: 'error',
+    type: "event",
+    anonymous: false,
     inputs: [
-      { name: 'account', internalType: 'address', type: 'address' },
-      { name: 'neededRole', internalType: 'bytes32', type: 'bytes32' },
+      {
+        name: "flightId",
+        internalType: "bytes32",
+        type: "bytes32",
+        indexed: true,
+      },
+      {
+        name: "onTimeShares",
+        internalType: "uint256",
+        type: "uint256",
+        indexed: false,
+      },
+      {
+        name: "delayed30Shares",
+        internalType: "uint256",
+        type: "uint256",
+        indexed: false,
+      },
+      {
+        name: "delayed120PlusShares",
+        internalType: "uint256",
+        type: "uint256",
+        indexed: false,
+      },
+      {
+        name: "cancelledShares",
+        internalType: "uint256",
+        type: "uint256",
+        indexed: false,
+      },
     ],
-    name: 'AccessControlUnauthorizedAccount',
-  },
-  { type: 'error', inputs: [], name: 'EnforcedPause' },
-  { type: 'error', inputs: [], name: 'ExpectedPause' },
-  {
-    type: 'error',
-    inputs: [{ name: 'owner', internalType: 'address', type: 'address' }],
-    name: 'OwnableInvalidOwner',
+    name: "SharesUpdated",
   },
   {
-    type: 'error',
-    inputs: [{ name: 'account', internalType: 'address', type: 'address' }],
-    name: 'OwnableUnauthorizedAccount',
-  },
-  {
-    type: 'error',
+    type: "event",
+    anonymous: false,
     inputs: [
-      { name: 'x', internalType: 'uint256', type: 'uint256' },
-      { name: 'y', internalType: 'uint256', type: 'uint256' },
+      {
+        name: "account",
+        internalType: "address",
+        type: "address",
+        indexed: false,
+      },
     ],
-    name: 'PRBMath_MulDiv18_Overflow',
+    name: "Unpaused",
   },
   {
-    type: 'error',
+    type: "event",
+    anonymous: false,
     inputs: [
-      { name: 'x', internalType: 'uint256', type: 'uint256' },
-      { name: 'y', internalType: 'uint256', type: 'uint256' },
-      { name: 'denominator', internalType: 'uint256', type: 'uint256' },
+      {
+        name: "flightId",
+        internalType: "bytes32",
+        type: "bytes32",
+        indexed: true,
+      },
+      { name: "user", internalType: "address", type: "address", indexed: true },
+      {
+        name: "payout",
+        internalType: "uint256",
+        type: "uint256",
+        indexed: false,
+      },
+      { name: "fee", internalType: "uint256", type: "uint256", indexed: false },
     ],
-    name: 'PRBMath_MulDiv_Overflow',
+    name: "WinningsClaimed",
   },
-  { type: 'error', inputs: [], name: 'PRBMath_SD59x18_Div_InputTooSmall' },
+  { type: "error", inputs: [], name: "AccessControlBadConfirmation" },
   {
-    type: 'error',
+    type: "error",
     inputs: [
-      { name: 'x', internalType: 'SD59x18', type: 'int256' },
-      { name: 'y', internalType: 'SD59x18', type: 'int256' },
+      { name: "account", internalType: "address", type: "address" },
+      { name: "neededRole", internalType: "bytes32", type: "bytes32" },
     ],
-    name: 'PRBMath_SD59x18_Div_Overflow',
+    name: "AccessControlUnauthorizedAccount",
+  },
+  { type: "error", inputs: [], name: "EnforcedPause" },
+  { type: "error", inputs: [], name: "ExpectedPause" },
+  {
+    type: "error",
+    inputs: [{ name: "owner", internalType: "address", type: "address" }],
+    name: "OwnableInvalidOwner",
   },
   {
-    type: 'error',
-    inputs: [{ name: 'x', internalType: 'SD59x18', type: 'int256' }],
-    name: 'PRBMath_SD59x18_Exp2_InputTooBig',
+    type: "error",
+    inputs: [{ name: "account", internalType: "address", type: "address" }],
+    name: "OwnableUnauthorizedAccount",
   },
   {
-    type: 'error',
-    inputs: [{ name: 'x', internalType: 'SD59x18', type: 'int256' }],
-    name: 'PRBMath_SD59x18_Exp_InputTooBig',
-  },
-  {
-    type: 'error',
-    inputs: [{ name: 'x', internalType: 'SD59x18', type: 'int256' }],
-    name: 'PRBMath_SD59x18_Log_InputTooSmall',
-  },
-  { type: 'error', inputs: [], name: 'PRBMath_SD59x18_Mul_InputTooSmall' },
-  {
-    type: 'error',
+    type: "error",
     inputs: [
-      { name: 'x', internalType: 'SD59x18', type: 'int256' },
-      { name: 'y', internalType: 'SD59x18', type: 'int256' },
+      { name: "x", internalType: "uint256", type: "uint256" },
+      { name: "y", internalType: "uint256", type: "uint256" },
     ],
-    name: 'PRBMath_SD59x18_Mul_Overflow',
+    name: "PRBMath_MulDiv18_Overflow",
   },
-  { type: 'error', inputs: [], name: 'ReentrancyGuardReentrantCall' },
-] as const
+  {
+    type: "error",
+    inputs: [
+      { name: "x", internalType: "uint256", type: "uint256" },
+      { name: "y", internalType: "uint256", type: "uint256" },
+      { name: "denominator", internalType: "uint256", type: "uint256" },
+    ],
+    name: "PRBMath_MulDiv_Overflow",
+  },
+  { type: "error", inputs: [], name: "PRBMath_SD59x18_Div_InputTooSmall" },
+  {
+    type: "error",
+    inputs: [
+      { name: "x", internalType: "SD59x18", type: "int256" },
+      { name: "y", internalType: "SD59x18", type: "int256" },
+    ],
+    name: "PRBMath_SD59x18_Div_Overflow",
+  },
+  {
+    type: "error",
+    inputs: [{ name: "x", internalType: "SD59x18", type: "int256" }],
+    name: "PRBMath_SD59x18_Exp2_InputTooBig",
+  },
+  {
+    type: "error",
+    inputs: [{ name: "x", internalType: "SD59x18", type: "int256" }],
+    name: "PRBMath_SD59x18_Exp_InputTooBig",
+  },
+  {
+    type: "error",
+    inputs: [{ name: "x", internalType: "SD59x18", type: "int256" }],
+    name: "PRBMath_SD59x18_Log_InputTooSmall",
+  },
+  { type: "error", inputs: [], name: "PRBMath_SD59x18_Mul_InputTooSmall" },
+  {
+    type: "error",
+    inputs: [
+      { name: "x", internalType: "SD59x18", type: "int256" },
+      { name: "y", internalType: "SD59x18", type: "int256" },
+    ],
+    name: "PRBMath_SD59x18_Mul_Overflow",
+  },
+  { type: "error", inputs: [], name: "ReentrancyGuardReentrantCall" },
+] as const;
 
 export const skyOddsAddress =
-  '0x8B87E271FB390FE7db2CE154e49096f72f6BE507' as const
+  "0x431119E3f9A2108B0D53BF3Ebbba057bFdF552d7" as const;
 
 export const skyOddsConfig = {
   address: skyOddsAddress,
   abi: skyOddsAbi,
-} as const
+} as const;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // React
@@ -1097,7 +1111,7 @@ export const skyOddsConfig = {
 export const useReadMockUsdc = /*#__PURE__*/ createUseReadContract({
   abi: mockUsdcAbi,
   address: mockUsdcAddress,
-})
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"allowance"`
@@ -1105,8 +1119,8 @@ export const useReadMockUsdc = /*#__PURE__*/ createUseReadContract({
 export const useReadMockUsdcAllowance = /*#__PURE__*/ createUseReadContract({
   abi: mockUsdcAbi,
   address: mockUsdcAddress,
-  functionName: 'allowance',
-})
+  functionName: "allowance",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"balanceOf"`
@@ -1114,8 +1128,8 @@ export const useReadMockUsdcAllowance = /*#__PURE__*/ createUseReadContract({
 export const useReadMockUsdcBalanceOf = /*#__PURE__*/ createUseReadContract({
   abi: mockUsdcAbi,
   address: mockUsdcAddress,
-  functionName: 'balanceOf',
-})
+  functionName: "balanceOf",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"decimals"`
@@ -1123,8 +1137,8 @@ export const useReadMockUsdcBalanceOf = /*#__PURE__*/ createUseReadContract({
 export const useReadMockUsdcDecimals = /*#__PURE__*/ createUseReadContract({
   abi: mockUsdcAbi,
   address: mockUsdcAddress,
-  functionName: 'decimals',
-})
+  functionName: "decimals",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"name"`
@@ -1132,8 +1146,8 @@ export const useReadMockUsdcDecimals = /*#__PURE__*/ createUseReadContract({
 export const useReadMockUsdcName = /*#__PURE__*/ createUseReadContract({
   abi: mockUsdcAbi,
   address: mockUsdcAddress,
-  functionName: 'name',
-})
+  functionName: "name",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"owner"`
@@ -1141,8 +1155,8 @@ export const useReadMockUsdcName = /*#__PURE__*/ createUseReadContract({
 export const useReadMockUsdcOwner = /*#__PURE__*/ createUseReadContract({
   abi: mockUsdcAbi,
   address: mockUsdcAddress,
-  functionName: 'owner',
-})
+  functionName: "owner",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"symbol"`
@@ -1150,8 +1164,8 @@ export const useReadMockUsdcOwner = /*#__PURE__*/ createUseReadContract({
 export const useReadMockUsdcSymbol = /*#__PURE__*/ createUseReadContract({
   abi: mockUsdcAbi,
   address: mockUsdcAddress,
-  functionName: 'symbol',
-})
+  functionName: "symbol",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"totalSupply"`
@@ -1159,8 +1173,8 @@ export const useReadMockUsdcSymbol = /*#__PURE__*/ createUseReadContract({
 export const useReadMockUsdcTotalSupply = /*#__PURE__*/ createUseReadContract({
   abi: mockUsdcAbi,
   address: mockUsdcAddress,
-  functionName: 'totalSupply',
-})
+  functionName: "totalSupply",
+});
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link mockUsdcAbi}__
@@ -1168,7 +1182,7 @@ export const useReadMockUsdcTotalSupply = /*#__PURE__*/ createUseReadContract({
 export const useWriteMockUsdc = /*#__PURE__*/ createUseWriteContract({
   abi: mockUsdcAbi,
   address: mockUsdcAddress,
-})
+});
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"approve"`
@@ -1176,8 +1190,8 @@ export const useWriteMockUsdc = /*#__PURE__*/ createUseWriteContract({
 export const useWriteMockUsdcApprove = /*#__PURE__*/ createUseWriteContract({
   abi: mockUsdcAbi,
   address: mockUsdcAddress,
-  functionName: 'approve',
-})
+  functionName: "approve",
+});
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"faucet"`
@@ -1185,8 +1199,8 @@ export const useWriteMockUsdcApprove = /*#__PURE__*/ createUseWriteContract({
 export const useWriteMockUsdcFaucet = /*#__PURE__*/ createUseWriteContract({
   abi: mockUsdcAbi,
   address: mockUsdcAddress,
-  functionName: 'faucet',
-})
+  functionName: "faucet",
+});
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"mint"`
@@ -1194,8 +1208,8 @@ export const useWriteMockUsdcFaucet = /*#__PURE__*/ createUseWriteContract({
 export const useWriteMockUsdcMint = /*#__PURE__*/ createUseWriteContract({
   abi: mockUsdcAbi,
   address: mockUsdcAddress,
-  functionName: 'mint',
-})
+  functionName: "mint",
+});
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"renounceOwnership"`
@@ -1204,8 +1218,8 @@ export const useWriteMockUsdcRenounceOwnership =
   /*#__PURE__*/ createUseWriteContract({
     abi: mockUsdcAbi,
     address: mockUsdcAddress,
-    functionName: 'renounceOwnership',
-  })
+    functionName: "renounceOwnership",
+  });
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"transfer"`
@@ -1213,8 +1227,8 @@ export const useWriteMockUsdcRenounceOwnership =
 export const useWriteMockUsdcTransfer = /*#__PURE__*/ createUseWriteContract({
   abi: mockUsdcAbi,
   address: mockUsdcAddress,
-  functionName: 'transfer',
-})
+  functionName: "transfer",
+});
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"transferFrom"`
@@ -1223,8 +1237,8 @@ export const useWriteMockUsdcTransferFrom =
   /*#__PURE__*/ createUseWriteContract({
     abi: mockUsdcAbi,
     address: mockUsdcAddress,
-    functionName: 'transferFrom',
-  })
+    functionName: "transferFrom",
+  });
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"transferOwnership"`
@@ -1233,8 +1247,8 @@ export const useWriteMockUsdcTransferOwnership =
   /*#__PURE__*/ createUseWriteContract({
     abi: mockUsdcAbi,
     address: mockUsdcAddress,
-    functionName: 'transferOwnership',
-  })
+    functionName: "transferOwnership",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link mockUsdcAbi}__
@@ -1242,7 +1256,7 @@ export const useWriteMockUsdcTransferOwnership =
 export const useSimulateMockUsdc = /*#__PURE__*/ createUseSimulateContract({
   abi: mockUsdcAbi,
   address: mockUsdcAddress,
-})
+});
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"approve"`
@@ -1251,8 +1265,8 @@ export const useSimulateMockUsdcApprove =
   /*#__PURE__*/ createUseSimulateContract({
     abi: mockUsdcAbi,
     address: mockUsdcAddress,
-    functionName: 'approve',
-  })
+    functionName: "approve",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"faucet"`
@@ -1261,8 +1275,8 @@ export const useSimulateMockUsdcFaucet =
   /*#__PURE__*/ createUseSimulateContract({
     abi: mockUsdcAbi,
     address: mockUsdcAddress,
-    functionName: 'faucet',
-  })
+    functionName: "faucet",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"mint"`
@@ -1270,8 +1284,8 @@ export const useSimulateMockUsdcFaucet =
 export const useSimulateMockUsdcMint = /*#__PURE__*/ createUseSimulateContract({
   abi: mockUsdcAbi,
   address: mockUsdcAddress,
-  functionName: 'mint',
-})
+  functionName: "mint",
+});
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"renounceOwnership"`
@@ -1280,8 +1294,8 @@ export const useSimulateMockUsdcRenounceOwnership =
   /*#__PURE__*/ createUseSimulateContract({
     abi: mockUsdcAbi,
     address: mockUsdcAddress,
-    functionName: 'renounceOwnership',
-  })
+    functionName: "renounceOwnership",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"transfer"`
@@ -1290,8 +1304,8 @@ export const useSimulateMockUsdcTransfer =
   /*#__PURE__*/ createUseSimulateContract({
     abi: mockUsdcAbi,
     address: mockUsdcAddress,
-    functionName: 'transfer',
-  })
+    functionName: "transfer",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"transferFrom"`
@@ -1300,8 +1314,8 @@ export const useSimulateMockUsdcTransferFrom =
   /*#__PURE__*/ createUseSimulateContract({
     abi: mockUsdcAbi,
     address: mockUsdcAddress,
-    functionName: 'transferFrom',
-  })
+    functionName: "transferFrom",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link mockUsdcAbi}__ and `functionName` set to `"transferOwnership"`
@@ -1310,8 +1324,8 @@ export const useSimulateMockUsdcTransferOwnership =
   /*#__PURE__*/ createUseSimulateContract({
     abi: mockUsdcAbi,
     address: mockUsdcAddress,
-    functionName: 'transferOwnership',
-  })
+    functionName: "transferOwnership",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link mockUsdcAbi}__
@@ -1319,7 +1333,7 @@ export const useSimulateMockUsdcTransferOwnership =
 export const useWatchMockUsdcEvent = /*#__PURE__*/ createUseWatchContractEvent({
   abi: mockUsdcAbi,
   address: mockUsdcAddress,
-})
+});
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link mockUsdcAbi}__ and `eventName` set to `"Approval"`
@@ -1328,8 +1342,8 @@ export const useWatchMockUsdcApprovalEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: mockUsdcAbi,
     address: mockUsdcAddress,
-    eventName: 'Approval',
-  })
+    eventName: "Approval",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link mockUsdcAbi}__ and `eventName` set to `"OwnershipTransferred"`
@@ -1338,8 +1352,8 @@ export const useWatchMockUsdcOwnershipTransferredEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: mockUsdcAbi,
     address: mockUsdcAddress,
-    eventName: 'OwnershipTransferred',
-  })
+    eventName: "OwnershipTransferred",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link mockUsdcAbi}__ and `eventName` set to `"Transfer"`
@@ -1348,8 +1362,8 @@ export const useWatchMockUsdcTransferEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: mockUsdcAbi,
     address: mockUsdcAddress,
-    eventName: 'Transfer',
-  })
+    eventName: "Transfer",
+  });
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__
@@ -1357,7 +1371,7 @@ export const useWatchMockUsdcTransferEvent =
 export const useReadSkyOdds = /*#__PURE__*/ createUseReadContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-})
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"ADMIN_ROLE"`
@@ -1365,8 +1379,8 @@ export const useReadSkyOdds = /*#__PURE__*/ createUseReadContract({
 export const useReadSkyOddsAdminRole = /*#__PURE__*/ createUseReadContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'ADMIN_ROLE',
-})
+  functionName: "ADMIN_ROLE",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"BASIS_POINTS"`
@@ -1374,8 +1388,8 @@ export const useReadSkyOddsAdminRole = /*#__PURE__*/ createUseReadContract({
 export const useReadSkyOddsBasisPoints = /*#__PURE__*/ createUseReadContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'BASIS_POINTS',
-})
+  functionName: "BASIS_POINTS",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"DEFAULT_ADMIN_ROLE"`
@@ -1384,8 +1398,8 @@ export const useReadSkyOddsDefaultAdminRole =
   /*#__PURE__*/ createUseReadContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'DEFAULT_ADMIN_ROLE',
-  })
+    functionName: "DEFAULT_ADMIN_ROLE",
+  });
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"DEFAULT_LIQUIDITY_PARAM"`
@@ -1394,8 +1408,8 @@ export const useReadSkyOddsDefaultLiquidityParam =
   /*#__PURE__*/ createUseReadContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'DEFAULT_LIQUIDITY_PARAM',
-  })
+    functionName: "DEFAULT_LIQUIDITY_PARAM",
+  });
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"MARKET_CLOSE_BUFFER"`
@@ -1404,8 +1418,8 @@ export const useReadSkyOddsMarketCloseBuffer =
   /*#__PURE__*/ createUseReadContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'MARKET_CLOSE_BUFFER',
-  })
+    functionName: "MARKET_CLOSE_BUFFER",
+  });
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"PLATFORM_FEE"`
@@ -1413,8 +1427,8 @@ export const useReadSkyOddsMarketCloseBuffer =
 export const useReadSkyOddsPlatformFee = /*#__PURE__*/ createUseReadContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'PLATFORM_FEE',
-})
+  functionName: "PLATFORM_FEE",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"USDCToken"`
@@ -1422,8 +1436,8 @@ export const useReadSkyOddsPlatformFee = /*#__PURE__*/ createUseReadContract({
 export const useReadSkyOddsUsdcToken = /*#__PURE__*/ createUseReadContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'USDCToken',
-})
+  functionName: "USDCToken",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"calculateSharesForCost"`
@@ -1432,8 +1446,18 @@ export const useReadSkyOddsCalculateSharesForCost =
   /*#__PURE__*/ createUseReadContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'calculateSharesForCost',
-  })
+    functionName: "calculateSharesForCost",
+  });
+
+/**
+ * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"calculateWinnings"`
+ */
+export const useReadSkyOddsCalculateWinnings =
+  /*#__PURE__*/ createUseReadContract({
+    abi: skyOddsAbi,
+    address: skyOddsAddress,
+    functionName: "calculateWinnings",
+  });
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"flightIds"`
@@ -1441,8 +1465,8 @@ export const useReadSkyOddsCalculateSharesForCost =
 export const useReadSkyOddsFlightIds = /*#__PURE__*/ createUseReadContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'flightIds',
-})
+  functionName: "flightIds",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"flights"`
@@ -1450,8 +1474,8 @@ export const useReadSkyOddsFlightIds = /*#__PURE__*/ createUseReadContract({
 export const useReadSkyOddsFlights = /*#__PURE__*/ createUseReadContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'flights',
-})
+  functionName: "flights",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"getAllFlightIds"`
@@ -1460,8 +1484,8 @@ export const useReadSkyOddsGetAllFlightIds =
   /*#__PURE__*/ createUseReadContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'getAllFlightIds',
-  })
+    functionName: "getAllFlightIds",
+  });
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"getAllPrices"`
@@ -1469,8 +1493,8 @@ export const useReadSkyOddsGetAllFlightIds =
 export const useReadSkyOddsGetAllPrices = /*#__PURE__*/ createUseReadContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'getAllPrices',
-})
+  functionName: "getAllPrices",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"getFlightInfo"`
@@ -1478,8 +1502,8 @@ export const useReadSkyOddsGetAllPrices = /*#__PURE__*/ createUseReadContract({
 export const useReadSkyOddsGetFlightInfo = /*#__PURE__*/ createUseReadContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'getFlightInfo',
-})
+  functionName: "getFlightInfo",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"getMarketShares"`
@@ -1488,8 +1512,8 @@ export const useReadSkyOddsGetMarketShares =
   /*#__PURE__*/ createUseReadContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'getMarketShares',
-  })
+    functionName: "getMarketShares",
+  });
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"getPrice"`
@@ -1497,8 +1521,8 @@ export const useReadSkyOddsGetMarketShares =
 export const useReadSkyOddsGetPrice = /*#__PURE__*/ createUseReadContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'getPrice',
-})
+  functionName: "getPrice",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"getRoleAdmin"`
@@ -1506,8 +1530,8 @@ export const useReadSkyOddsGetPrice = /*#__PURE__*/ createUseReadContract({
 export const useReadSkyOddsGetRoleAdmin = /*#__PURE__*/ createUseReadContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'getRoleAdmin',
-})
+  functionName: "getRoleAdmin",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"getUserPosition"`
@@ -1516,8 +1540,8 @@ export const useReadSkyOddsGetUserPosition =
   /*#__PURE__*/ createUseReadContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'getUserPosition',
-  })
+    functionName: "getUserPosition",
+  });
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"hasClaimed"`
@@ -1525,8 +1549,8 @@ export const useReadSkyOddsGetUserPosition =
 export const useReadSkyOddsHasClaimed = /*#__PURE__*/ createUseReadContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'hasClaimed',
-})
+  functionName: "hasClaimed",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"hasRole"`
@@ -1534,15 +1558,15 @@ export const useReadSkyOddsHasClaimed = /*#__PURE__*/ createUseReadContract({
 export const useReadSkyOddsHasRole = /*#__PURE__*/ createUseReadContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'hasRole',
-})
+  functionName: "hasRole",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"oracleResolver"`
  */
 export const useReadSkyOddsOracleResolver = /*#__PURE__*/ createUseReadContract(
-  { abi: skyOddsAbi, address: skyOddsAddress, functionName: 'oracleResolver' },
-)
+  { abi: skyOddsAbi, address: skyOddsAddress, functionName: "oracleResolver" }
+);
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"owner"`
@@ -1550,8 +1574,8 @@ export const useReadSkyOddsOracleResolver = /*#__PURE__*/ createUseReadContract(
 export const useReadSkyOddsOwner = /*#__PURE__*/ createUseReadContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'owner',
-})
+  functionName: "owner",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"paused"`
@@ -1559,8 +1583,8 @@ export const useReadSkyOddsOwner = /*#__PURE__*/ createUseReadContract({
 export const useReadSkyOddsPaused = /*#__PURE__*/ createUseReadContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'paused',
-})
+  functionName: "paused",
+});
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"supportsInterface"`
@@ -1569,8 +1593,8 @@ export const useReadSkyOddsSupportsInterface =
   /*#__PURE__*/ createUseReadContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'supportsInterface',
-  })
+    functionName: "supportsInterface",
+  });
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"totalCostByOutcome"`
@@ -1579,15 +1603,15 @@ export const useReadSkyOddsTotalCostByOutcome =
   /*#__PURE__*/ createUseReadContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'totalCostByOutcome',
-  })
+    functionName: "totalCostByOutcome",
+  });
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"totalDeposited"`
  */
 export const useReadSkyOddsTotalDeposited = /*#__PURE__*/ createUseReadContract(
-  { abi: skyOddsAbi, address: skyOddsAddress, functionName: 'totalDeposited' },
-)
+  { abi: skyOddsAbi, address: skyOddsAddress, functionName: "totalDeposited" }
+);
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"totalFeesCollected"`
@@ -1596,8 +1620,8 @@ export const useReadSkyOddsTotalFeesCollected =
   /*#__PURE__*/ createUseReadContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'totalFeesCollected',
-  })
+    functionName: "totalFeesCollected",
+  });
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"totalFeesWithdrawn"`
@@ -1606,8 +1630,8 @@ export const useReadSkyOddsTotalFeesWithdrawn =
   /*#__PURE__*/ createUseReadContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'totalFeesWithdrawn',
-  })
+    functionName: "totalFeesWithdrawn",
+  });
 
 /**
  * Wraps __{@link useReadContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"totalPoolAmount"`
@@ -1616,8 +1640,8 @@ export const useReadSkyOddsTotalPoolAmount =
   /*#__PURE__*/ createUseReadContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'totalPoolAmount',
-  })
+    functionName: "totalPoolAmount",
+  });
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link skyOddsAbi}__
@@ -1625,14 +1649,14 @@ export const useReadSkyOddsTotalPoolAmount =
 export const useWriteSkyOdds = /*#__PURE__*/ createUseWriteContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-})
+});
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"cancelMarket"`
  */
 export const useWriteSkyOddsCancelMarket = /*#__PURE__*/ createUseWriteContract(
-  { abi: skyOddsAbi, address: skyOddsAddress, functionName: 'cancelMarket' },
-)
+  { abi: skyOddsAbi, address: skyOddsAddress, functionName: "cancelMarket" }
+);
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"claimWinnings"`
@@ -1641,8 +1665,8 @@ export const useWriteSkyOddsClaimWinnings =
   /*#__PURE__*/ createUseWriteContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'claimWinnings',
-  })
+    functionName: "claimWinnings",
+  });
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"createFlightMarket"`
@@ -1651,8 +1675,8 @@ export const useWriteSkyOddsCreateFlightMarket =
   /*#__PURE__*/ createUseWriteContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'createFlightMarket',
-  })
+    functionName: "createFlightMarket",
+  });
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"emergencyWithdraw"`
@@ -1661,8 +1685,8 @@ export const useWriteSkyOddsEmergencyWithdraw =
   /*#__PURE__*/ createUseWriteContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'emergencyWithdraw',
-  })
+    functionName: "emergencyWithdraw",
+  });
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"grantRole"`
@@ -1670,8 +1694,8 @@ export const useWriteSkyOddsEmergencyWithdraw =
 export const useWriteSkyOddsGrantRole = /*#__PURE__*/ createUseWriteContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'grantRole',
-})
+  functionName: "grantRole",
+});
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"pause"`
@@ -1679,8 +1703,8 @@ export const useWriteSkyOddsGrantRole = /*#__PURE__*/ createUseWriteContract({
 export const useWriteSkyOddsPause = /*#__PURE__*/ createUseWriteContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'pause',
-})
+  functionName: "pause",
+});
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"placeBet"`
@@ -1688,8 +1712,8 @@ export const useWriteSkyOddsPause = /*#__PURE__*/ createUseWriteContract({
 export const useWriteSkyOddsPlaceBet = /*#__PURE__*/ createUseWriteContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'placeBet',
-})
+  functionName: "placeBet",
+});
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"renounceOwnership"`
@@ -1698,15 +1722,15 @@ export const useWriteSkyOddsRenounceOwnership =
   /*#__PURE__*/ createUseWriteContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'renounceOwnership',
-  })
+    functionName: "renounceOwnership",
+  });
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"renounceRole"`
  */
 export const useWriteSkyOddsRenounceRole = /*#__PURE__*/ createUseWriteContract(
-  { abi: skyOddsAbi, address: skyOddsAddress, functionName: 'renounceRole' },
-)
+  { abi: skyOddsAbi, address: skyOddsAddress, functionName: "renounceRole" }
+);
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"resolveMarket"`
@@ -1715,8 +1739,8 @@ export const useWriteSkyOddsResolveMarket =
   /*#__PURE__*/ createUseWriteContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'resolveMarket',
-  })
+    functionName: "resolveMarket",
+  });
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"revokeRole"`
@@ -1724,8 +1748,8 @@ export const useWriteSkyOddsResolveMarket =
 export const useWriteSkyOddsRevokeRole = /*#__PURE__*/ createUseWriteContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'revokeRole',
-})
+  functionName: "revokeRole",
+});
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"setOracleResolver"`
@@ -1734,8 +1758,8 @@ export const useWriteSkyOddsSetOracleResolver =
   /*#__PURE__*/ createUseWriteContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'setOracleResolver',
-  })
+    functionName: "setOracleResolver",
+  });
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"transferOwnership"`
@@ -1744,8 +1768,8 @@ export const useWriteSkyOddsTransferOwnership =
   /*#__PURE__*/ createUseWriteContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'transferOwnership',
-  })
+    functionName: "transferOwnership",
+  });
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"unpause"`
@@ -1753,15 +1777,15 @@ export const useWriteSkyOddsTransferOwnership =
 export const useWriteSkyOddsUnpause = /*#__PURE__*/ createUseWriteContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'unpause',
-})
+  functionName: "unpause",
+});
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"withdrawFees"`
  */
 export const useWriteSkyOddsWithdrawFees = /*#__PURE__*/ createUseWriteContract(
-  { abi: skyOddsAbi, address: skyOddsAddress, functionName: 'withdrawFees' },
-)
+  { abi: skyOddsAbi, address: skyOddsAddress, functionName: "withdrawFees" }
+);
 
 /**
  * Wraps __{@link useWriteContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"withdrawFromCancelledMarket"`
@@ -1770,8 +1794,8 @@ export const useWriteSkyOddsWithdrawFromCancelledMarket =
   /*#__PURE__*/ createUseWriteContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'withdrawFromCancelledMarket',
-  })
+    functionName: "withdrawFromCancelledMarket",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link skyOddsAbi}__
@@ -1779,7 +1803,7 @@ export const useWriteSkyOddsWithdrawFromCancelledMarket =
 export const useSimulateSkyOdds = /*#__PURE__*/ createUseSimulateContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-})
+});
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"cancelMarket"`
@@ -1788,8 +1812,8 @@ export const useSimulateSkyOddsCancelMarket =
   /*#__PURE__*/ createUseSimulateContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'cancelMarket',
-  })
+    functionName: "cancelMarket",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"claimWinnings"`
@@ -1798,8 +1822,8 @@ export const useSimulateSkyOddsClaimWinnings =
   /*#__PURE__*/ createUseSimulateContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'claimWinnings',
-  })
+    functionName: "claimWinnings",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"createFlightMarket"`
@@ -1808,8 +1832,8 @@ export const useSimulateSkyOddsCreateFlightMarket =
   /*#__PURE__*/ createUseSimulateContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'createFlightMarket',
-  })
+    functionName: "createFlightMarket",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"emergencyWithdraw"`
@@ -1818,8 +1842,8 @@ export const useSimulateSkyOddsEmergencyWithdraw =
   /*#__PURE__*/ createUseSimulateContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'emergencyWithdraw',
-  })
+    functionName: "emergencyWithdraw",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"grantRole"`
@@ -1828,8 +1852,8 @@ export const useSimulateSkyOddsGrantRole =
   /*#__PURE__*/ createUseSimulateContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'grantRole',
-  })
+    functionName: "grantRole",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"pause"`
@@ -1837,8 +1861,8 @@ export const useSimulateSkyOddsGrantRole =
 export const useSimulateSkyOddsPause = /*#__PURE__*/ createUseSimulateContract({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-  functionName: 'pause',
-})
+  functionName: "pause",
+});
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"placeBet"`
@@ -1847,8 +1871,8 @@ export const useSimulateSkyOddsPlaceBet =
   /*#__PURE__*/ createUseSimulateContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'placeBet',
-  })
+    functionName: "placeBet",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"renounceOwnership"`
@@ -1857,8 +1881,8 @@ export const useSimulateSkyOddsRenounceOwnership =
   /*#__PURE__*/ createUseSimulateContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'renounceOwnership',
-  })
+    functionName: "renounceOwnership",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"renounceRole"`
@@ -1867,8 +1891,8 @@ export const useSimulateSkyOddsRenounceRole =
   /*#__PURE__*/ createUseSimulateContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'renounceRole',
-  })
+    functionName: "renounceRole",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"resolveMarket"`
@@ -1877,8 +1901,8 @@ export const useSimulateSkyOddsResolveMarket =
   /*#__PURE__*/ createUseSimulateContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'resolveMarket',
-  })
+    functionName: "resolveMarket",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"revokeRole"`
@@ -1887,8 +1911,8 @@ export const useSimulateSkyOddsRevokeRole =
   /*#__PURE__*/ createUseSimulateContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'revokeRole',
-  })
+    functionName: "revokeRole",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"setOracleResolver"`
@@ -1897,8 +1921,8 @@ export const useSimulateSkyOddsSetOracleResolver =
   /*#__PURE__*/ createUseSimulateContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'setOracleResolver',
-  })
+    functionName: "setOracleResolver",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"transferOwnership"`
@@ -1907,8 +1931,8 @@ export const useSimulateSkyOddsTransferOwnership =
   /*#__PURE__*/ createUseSimulateContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'transferOwnership',
-  })
+    functionName: "transferOwnership",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"unpause"`
@@ -1917,8 +1941,8 @@ export const useSimulateSkyOddsUnpause =
   /*#__PURE__*/ createUseSimulateContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'unpause',
-  })
+    functionName: "unpause",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"withdrawFees"`
@@ -1927,8 +1951,8 @@ export const useSimulateSkyOddsWithdrawFees =
   /*#__PURE__*/ createUseSimulateContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'withdrawFees',
-  })
+    functionName: "withdrawFees",
+  });
 
 /**
  * Wraps __{@link useSimulateContract}__ with `abi` set to __{@link skyOddsAbi}__ and `functionName` set to `"withdrawFromCancelledMarket"`
@@ -1937,8 +1961,8 @@ export const useSimulateSkyOddsWithdrawFromCancelledMarket =
   /*#__PURE__*/ createUseSimulateContract({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    functionName: 'withdrawFromCancelledMarket',
-  })
+    functionName: "withdrawFromCancelledMarket",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link skyOddsAbi}__
@@ -1946,7 +1970,7 @@ export const useSimulateSkyOddsWithdrawFromCancelledMarket =
 export const useWatchSkyOddsEvent = /*#__PURE__*/ createUseWatchContractEvent({
   abi: skyOddsAbi,
   address: skyOddsAddress,
-})
+});
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link skyOddsAbi}__ and `eventName` set to `"EmergencyWithdrawal"`
@@ -1955,8 +1979,8 @@ export const useWatchSkyOddsEmergencyWithdrawalEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    eventName: 'EmergencyWithdrawal',
-  })
+    eventName: "EmergencyWithdrawal",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link skyOddsAbi}__ and `eventName` set to `"FeesWithdrawn"`
@@ -1965,8 +1989,8 @@ export const useWatchSkyOddsFeesWithdrawnEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    eventName: 'FeesWithdrawn',
-  })
+    eventName: "FeesWithdrawn",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link skyOddsAbi}__ and `eventName` set to `"MarketCancelled"`
@@ -1975,8 +1999,8 @@ export const useWatchSkyOddsMarketCancelledEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    eventName: 'MarketCancelled',
-  })
+    eventName: "MarketCancelled",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link skyOddsAbi}__ and `eventName` set to `"MarketCreated"`
@@ -1985,8 +2009,8 @@ export const useWatchSkyOddsMarketCreatedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    eventName: 'MarketCreated',
-  })
+    eventName: "MarketCreated",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link skyOddsAbi}__ and `eventName` set to `"MarketResolved"`
@@ -1995,8 +2019,8 @@ export const useWatchSkyOddsMarketResolvedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    eventName: 'MarketResolved',
-  })
+    eventName: "MarketResolved",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link skyOddsAbi}__ and `eventName` set to `"OracleResolverUpdated"`
@@ -2005,8 +2029,8 @@ export const useWatchSkyOddsOracleResolverUpdatedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    eventName: 'OracleResolverUpdated',
-  })
+    eventName: "OracleResolverUpdated",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link skyOddsAbi}__ and `eventName` set to `"OwnershipTransferred"`
@@ -2015,8 +2039,8 @@ export const useWatchSkyOddsOwnershipTransferredEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    eventName: 'OwnershipTransferred',
-  })
+    eventName: "OwnershipTransferred",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link skyOddsAbi}__ and `eventName` set to `"Paused"`
@@ -2025,8 +2049,8 @@ export const useWatchSkyOddsPausedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    eventName: 'Paused',
-  })
+    eventName: "Paused",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link skyOddsAbi}__ and `eventName` set to `"RoleAdminChanged"`
@@ -2035,8 +2059,8 @@ export const useWatchSkyOddsRoleAdminChangedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    eventName: 'RoleAdminChanged',
-  })
+    eventName: "RoleAdminChanged",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link skyOddsAbi}__ and `eventName` set to `"RoleGranted"`
@@ -2045,8 +2069,8 @@ export const useWatchSkyOddsRoleGrantedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    eventName: 'RoleGranted',
-  })
+    eventName: "RoleGranted",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link skyOddsAbi}__ and `eventName` set to `"RoleRevoked"`
@@ -2055,8 +2079,8 @@ export const useWatchSkyOddsRoleRevokedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    eventName: 'RoleRevoked',
-  })
+    eventName: "RoleRevoked",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link skyOddsAbi}__ and `eventName` set to `"SharesPurchased"`
@@ -2065,8 +2089,8 @@ export const useWatchSkyOddsSharesPurchasedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    eventName: 'SharesPurchased',
-  })
+    eventName: "SharesPurchased",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link skyOddsAbi}__ and `eventName` set to `"SharesUpdated"`
@@ -2075,8 +2099,8 @@ export const useWatchSkyOddsSharesUpdatedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    eventName: 'SharesUpdated',
-  })
+    eventName: "SharesUpdated",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link skyOddsAbi}__ and `eventName` set to `"Unpaused"`
@@ -2085,8 +2109,8 @@ export const useWatchSkyOddsUnpausedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    eventName: 'Unpaused',
-  })
+    eventName: "Unpaused",
+  });
 
 /**
  * Wraps __{@link useWatchContractEvent}__ with `abi` set to __{@link skyOddsAbi}__ and `eventName` set to `"WinningsClaimed"`
@@ -2095,5 +2119,5 @@ export const useWatchSkyOddsWinningsClaimedEvent =
   /*#__PURE__*/ createUseWatchContractEvent({
     abi: skyOddsAbi,
     address: skyOddsAddress,
-    eventName: 'WinningsClaimed',
-  })
+    eventName: "WinningsClaimed",
+  });

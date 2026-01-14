@@ -1,11 +1,9 @@
 "use client";
 
 import { useAccount, useReadContracts } from "wagmi";
-import { skyOddsAbi } from "./generated";
+import { skyOddsAbi, skyOddsAddress } from "./generated";
 import { formatUnits } from "viem";
 import { useAllMarkets } from "./useMarketData";
-
-const CONTRACT_ADDRESS = "0x8B87E271FB390FE7db2CE154e49096f72f6BE507";
 
 export function usePortfolio() {
   const { address } = useAccount();
@@ -15,7 +13,7 @@ export function usePortfolio() {
   // This is heavy but necessary without a Subgraph
   const contracts = markets.flatMap((market) =>
     [1, 2, 3, 4].map((outcomeIndex) => ({
-      address: CONTRACT_ADDRESS,
+      address: skyOddsAddress,
       abi: skyOddsAbi,
       functionName: "getUserPosition",
       args: [market.id, address, outcomeIndex],

@@ -34,19 +34,7 @@ export default function LandingPage() {
           <div className="bg-black text-white p-1 rounded-sm">
             <Plane className="w-4 h-4 transform -rotate-45" />
           </div>
-          <span className="text-lg font-bold tracking-tight">SkyOdds</span>
-        </div>
-
-        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-zinc-500">
-          <a href="#features" className="hover:text-black transition-colors">
-            Protocol
-          </a>
-          <a href="#markets" className="hover:text-black transition-colors">
-            Markets
-          </a>
-          <a href="#privacy" className="hover:text-black transition-colors">
-            Governance
-          </a>
+          <span className="text-lg font-bold tracking-tight">Outcome</span>
         </div>
 
         <div className="flex items-center gap-4">
@@ -55,7 +43,7 @@ export default function LandingPage() {
               variant="default"
               className="bg-black hover:bg-zinc-800 text-white rounded-none h-10 px-6 font-medium"
             >
-              Launch Terminal
+              Launch Markets
             </Button>
           </Link>
         </div>
@@ -76,7 +64,7 @@ export default function LandingPage() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-black"></span>
             </span>
             <span className="text-xs font-semibold text-zinc-600 tracking-wide uppercase">
-              Mantle Network Mainnet
+              Mantle Network
             </span>
           </div>
         </motion.div>
@@ -287,7 +275,7 @@ export default function LandingPage() {
       <footer className="py-12 border-t border-zinc-200 bg-white text-center">
         <div className="flex items-center justify-center gap-2 mb-4 opacity-50">
           <Plane className="w-4 h-4" />
-          <span className="font-bold tracking-tight">SkyOdds</span>
+          <span className="font-bold tracking-tight">Outcome</span>
         </div>
         <p className="text-zinc-400 text-xs">
           Built for the AI & Privacy Hackathon 2025. Running on Mantle Network.

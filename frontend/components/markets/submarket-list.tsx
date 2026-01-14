@@ -119,7 +119,7 @@ export function SubMarketsList({
                   onSelect(market.id);
                 }}
               >
-                YES {market.price}¢
+                YES {market.price.toFixed(2)}¢
               </Button>
               <Button
                 size="sm"
@@ -130,7 +130,7 @@ export function SubMarketsList({
                   onSelect(market.id);
                 }}
               >
-                NO {100 - market.price}¢
+                NO {(100 - market.price).toFixed(2)}¢
               </Button>
             </div>
           </div>

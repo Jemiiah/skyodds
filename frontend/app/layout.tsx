@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { ParticleConnectkit } from "@/components/connectkit";
+import { Toaster } from "@/components/ui/sonner";
+// import { ParticleAuthkit } from "@/components/Authkit";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,9 +31,13 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ParticleConnectkit>
-          <Providers>{children}</Providers>
-        </ParticleConnectkit>
+        <Providers>
+          <ParticleConnectkit>
+            <Toaster />
+            {children}
+          </ParticleConnectkit>
+        </Providers>
+        {/* <ParticleAuthkit>{children}</ParticleAuthkit> */}
       </body>
     </html>
   );

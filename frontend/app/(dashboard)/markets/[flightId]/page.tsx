@@ -18,7 +18,9 @@ import { MarketTabs } from "@/components/markets/market-tabs";
 import { useAllMarkets } from "@/hooks/useMarketData";
 import { UserPositionsCard } from "@/components/markets/user-positions-card";
 import { MarketGraph } from "@/components/market-graph";
-
+import { MarketAnalysis } from "@/components/markets/market-analysis";
+import { ClaimWinningsCard } from "@/components/markets/claim-winnings-card";
+import { AdminResolutionPanel } from "@/components/markets/admin-resolution-panel";
 
 export default function MarketPage({
   params,
@@ -39,63 +41,63 @@ export default function MarketPage({
   // Construct Submarkets dynamically from Contract Data
   const dynamicSubmarkets: SubMarket[] = marketData
     ? [
-      {
-        id: "ontime",
-        label: "On Time",
-        icon: Timer,
-        probability: marketData.prices.onTime,
-        price: marketData.prices.onTime,
-        outcomeIndex: 1,
-        trend: "up",
-        history: [
-          { value: 40 },
-          { value: 60 },
-          { value: marketData.prices.onTime },
-        ],
-      },
-      {
-        id: "delay-30",
-        label: "Delayed > 30m",
-        icon: Clock,
-        probability: marketData.prices.delayed30,
-        price: marketData.prices.delayed30,
-        outcomeIndex: 2,
-        trend: "flat",
-        history: [
-          { value: 20 },
-          { value: 25 },
-          { value: marketData.prices.delayed30 },
-        ],
-      },
-      {
-        id: "delay-120",
-        label: "Delayed > 2h",
-        icon: AlertTriangle,
-        probability: marketData.prices.delayed120,
-        price: marketData.prices.delayed120,
-        outcomeIndex: 3,
-        trend: "flat",
-        history: [
-          { value: 10 },
-          { value: 10 },
-          { value: marketData.prices.delayed120 },
-        ],
-      },
-      {
-        id: "cancelled",
-        label: "Cancelled",
-        icon: Ban,
-        probability: marketData.prices.cancelled,
-        price: marketData.prices.cancelled,
-        outcomeIndex: 4,
-        trend: "down",
-        history: [
-          { value: 5 },
-          { value: 2 },
-          { value: marketData.prices.cancelled },
-        ],
-      },
-    ]
+        {
+          id: "ontime",
+          label: "On Time",
+          icon: Timer,
+          probability: marketData.prices.onTime,
+          price: marketData.prices.onTime,
+          outcomeIndex: 1,
+          trend: "up",
+          history: [
+            { value: 40 },
+            { value: 60 },
+            { value: marketData.prices.onTime },
+          ],
+        },
+        {
+          id: "delay-30",
+          label: "Delayed > 30m",
+          icon: Clock,
+          probability: marketData.prices.delayed30,
+          price: marketData.prices.delayed30,
+          outcomeIndex: 2,
+          trend: "flat",
+          history: [
+            { value: 20 },
+            { value: 25 },
+            { value: marketData.prices.delayed30 },
+          ],
+        },
+        {
+          id: "delay-120",
+          label: "Delayed > 2h",
+          icon: AlertTriangle,
+          probability: marketData.prices.delayed120,
+          price: marketData.prices.delayed120,
+          outcomeIndex: 3,
+          trend: "flat",
+          history: [
+            { value: 10 },
+            { value: 10 },
+            { value: marketData.prices.delayed120 },
+          ],
+        },
+        {
+          id: "cancelled",
+          label: "Cancelled",
+          icon: Ban,
+          probability: marketData.prices.cancelled,
+          price: marketData.prices.cancelled,
+          outcomeIndex: 4,
+          trend: "down",
+          history: [
+            { value: 5 },
+            { value: 2 },
+            { value: marketData.prices.cancelled },
+          ],
+        },
+      ]
     : [];
 
   // Set default active market once data loads
@@ -118,7 +120,8 @@ export default function MarketPage({
   }
 
   const isMarketResolved = marketData
-    ? marketData.status !== "Unresolved"
+    ? marketData.status !== "Unresolved" ||
+      Date.now() > marketData.departureTimestamp * 1000
     : false;
 
   return (
@@ -135,6 +138,9 @@ export default function MarketPage({
           </Button>
         </Link>
       </div>
+      {marketData.status !== "Unresolved" && (
+        <ClaimWinningsCard marketId={marketData.id} />
+      )}
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         {/* --- LEFT COL: SUBMARKETS LIST --- */}
@@ -178,19 +184,13 @@ export default function MarketPage({
           </div>
 
           {/* AI Insights */}
-          <div className="bg-zinc-50 border border-zinc-200 rounded-xl p-6">
-            <h4 className="font-bold text-zinc-900 mb-2">
-              AI Analysis for: {activeMarket.label}
-            </h4>
-            <p className="text-zinc-500 text-sm">
-              Based on current weather patterns, the probability of{" "}
-              {activeMarket.label} is
-              <span className="font-bold text-black mx-1">
-                higher than market consensus
-              </span>
-              .
-            </p>
-          </div>
+          <MarketAnalysis
+            flightNumber={marketData.flightNumber}
+            route={marketData.route}
+            departureTime={marketData.departureTime}
+            marketData={marketData}
+            isResolved={isMarketResolved}
+          />
 
           <div>
             <MarketTabs
@@ -231,10 +231,16 @@ export default function MarketPage({
                 price: activeMarket.price,
                 outcomeIndex: activeMarket.outcomeIndex,
               }}
+              isResolved={isMarketResolved}
             />
           </div>
         </div>
       </div>
+      <AdminResolutionPanel
+        marketId={marketData.id}
+        departureTimestamp={marketData.departureTimestamp}
+        isResolved={marketData.status !== "Unresolved"}
+      />
     </div>
   );
 }

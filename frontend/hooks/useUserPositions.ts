@@ -1,10 +1,8 @@
 "use client";
 
 import { useAccount, useConnection, useReadContracts } from "wagmi";
-import { skyOddsAbi } from "./generated";
+import { skyOddsAbi, skyOddsAddress } from "./generated";
 import { formatUnits } from "viem";
-
-const CONTRACT_ADDRESS = "0x8B87E271FB390FE7db2CE154e49096f72f6BE507";
 
 export function useUserPositions(flightId: string) {
   const { address } = useConnection();
@@ -14,7 +12,7 @@ export function useUserPositions(flightId: string) {
   const outcomes = [1, 2, 3, 4];
 
   const contracts = outcomes.map((outcomeIndex) => ({
-    address: CONTRACT_ADDRESS,
+    address: skyOddsAddress,
     abi: skyOddsAbi,
     functionName: "getUserPosition",
     args: [flightId, address, outcomeIndex],
@@ -24,7 +22,7 @@ export function useUserPositions(flightId: string) {
   const allContracts = [
     ...contracts,
     {
-      address: CONTRACT_ADDRESS,
+      address: skyOddsAddress,
       abi: skyOddsAbi,
       functionName: "hasClaimed",
       args: [flightId, address],

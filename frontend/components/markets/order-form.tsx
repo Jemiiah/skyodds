@@ -30,9 +30,10 @@ interface OrderFormProps {
     price: number;
     outcomeIndex: number; // 1, 2, 3, 4
   };
+  isResolved?: boolean;
 }
 
-export function OrderForm({ market }: OrderFormProps) {
+export function OrderForm({ market, isResolved = false }: OrderFormProps) {
   const [isBuy, setIsBuy] = useState(true);
   const [outcome, setOutcome] = useState<"YES" | "NO">("YES");
   const [amount, setAmount] = useState<string>("");
@@ -185,7 +186,8 @@ export function OrderForm({ market }: OrderFormProps) {
               placeholder="0"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              className="w-full bg-transparent border-none text-right text-4xl font-extrabold text-black focus:ring-0 p-0 placeholder:text-zinc-100 font-mono tracking-tighter outline-none"
+              className="w-full bg-transparent border-none text-right text-4xl font-extrabold text-black focus:ring-0 p-0 placeholder:text-zinc-100 font-mono tracking-tighter outline-none disabled:opacity-50"
+              disabled={isResolved}
             />
           </div>
 
@@ -200,7 +202,8 @@ export function OrderForm({ market }: OrderFormProps) {
                         (parseFloat(prev || "0") + parseFloat(val)).toString()
                       )
                 }
-                className="flex-1 py-2 text-[10px] font-bold text-zinc-600 border border-zinc-200 bg-white hover:bg-black hover:text-white hover:border-black transition-all uppercase tracking-wide rounded"
+                className="flex-1 py-2 text-[10px] font-bold text-zinc-600 border border-zinc-200 bg-white hover:bg-black hover:text-white hover:border-black transition-all uppercase tracking-wide rounded disabled:opacity-50 disabled:cursor-not-allowed"
+                disabled={isResolved}
               >
                 {val === "Max" ? "Max" : `+$${val}`}
               </button>
@@ -237,7 +240,7 @@ export function OrderForm({ market }: OrderFormProps) {
 
         {/* Action Button */}
         <Button
-          disabled={!amount || isPending || isCalculating}
+          disabled={!amount || isPending || isCalculating || isResolved}
           onClick={onConfirm}
           className={cn(
             "w-full h-14 text-base font-bold shadow-none transition-all rounded-md active:scale-[0.99] text-white",
@@ -253,7 +256,7 @@ export function OrderForm({ market }: OrderFormProps) {
             ) : (
               <ArrowDownLeft className="w-4 h-4 mr-2" />
             ))}
-          {isPending ? "Confirming..." : `${isBuy ? "BUY" : "SELL"} ${outcome}`}
+          {isPending ? "Confirming..." : isResolved ? "Market Resolved" : `${isBuy ? "BUY" : "SELL"} ${outcome}`}
         </Button>
       </div>
     </Card>

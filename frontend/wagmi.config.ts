@@ -9,12 +9,12 @@ export default defineConfig({
     {
       name: "SkyOdds",
       abi: skyOddsAbi as any,
-      address: "0x8B87E271FB390FE7db2CE154e49096f72f6BE507", // Mantle Testnet Address
+      address: "0x431119E3f9A2108B0D53BF3Ebbba057bFdF552d7", // Mantle Testnet Address
     },
     {
       name: "MockUSDC",
       abi: mockUsdcAbi as any,
-      address: "0xFAEC032f2E8c85Da9d04b06947a6BdCf02Ad7a71", // Mantle Testnet Address
+      address: "0xAB6a56DA5c42976953FE245F478f0b183B2479BF", // Mantle Testnet Address
     },
   ],
   plugins: [react()],

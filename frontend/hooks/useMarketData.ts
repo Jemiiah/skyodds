@@ -1,11 +1,12 @@
 "use client";
 
-import { useReadSkyOddsGetAllFlightIds } from "@/hooks/generated";
+import {
+  skyOddsAddress,
+  useReadSkyOddsGetAllFlightIds,
+} from "@/hooks/generated";
 import { useReadContracts } from "wagmi";
 import { formatUnits } from "viem";
 import skyOddsAbi from "../app/abis/SkyOdds.json";
-
-const CONTRACT_ADDRESS = "0x8B87E271FB390FE7db2CE154e49096f72f6BE507";
 
 // Helper to map enum to text
 const STATUS_MAP = [
@@ -24,13 +25,13 @@ export function useAllMarkets() {
   // 2. Prepare Multicall: For every ID, we want Info AND Prices
   const contracts = flightIds?.flatMap((id) => [
     {
-      address: CONTRACT_ADDRESS,
+      address: skyOddsAddress,
       abi: skyOddsAbi,
       functionName: "getFlightInfo",
       args: [id],
     },
     {
-      address: CONTRACT_ADDRESS,
+      address: skyOddsAddress,
       abi: skyOddsAbi,
       functionName: "getAllPrices",
       args: [id],
@@ -58,6 +59,7 @@ export function useAllMarkets() {
 
       if (infoResult.status === "success" && priceResult.status === "success") {
         const info = infoResult.result as any;
+        console.log(info, "infooo");
         const prices = priceResult.result as any;
 
         // Prices are in Wei (1e18). 1e18 = 100%.
@@ -67,14 +69,31 @@ export function useAllMarkets() {
           return parseFloat(num.toFixed(2)); // Strict 2 decimal rounding
         };
 
+        const formatFlightDate = (ts: number) => {
+          const d = new Date(ts * 1000);
+          const day = d.getDate();
+          const suffix =
+            day > 3 && day < 21
+              ? "th"
+              : ["th", "st", "nd", "rd"][day % 10] || "th";
+          const month = d.toLocaleDateString("en-US", { month: "short" });
+          const time = d
+            .toLocaleTimeString("en-US", {
+              hour: "numeric",
+              minute: "2-digit",
+              hour12: true,
+            })
+            .toLowerCase();
+          return `${day}${suffix} ${month} ${d.getFullYear()} ${time}`;
+        };
+
         markets.push({
           id: flightIds[i],
           flightNumber: info[0],
+          // isResolved: info[]
           route: `${info[1]} -> ${info[2]}`, // Departure -> Destination
-          departureTime: new Date(Number(info[3]) * 1000).toLocaleTimeString(
-            [],
-            { hour: "2-digit", minute: "2-digit" }
-          ),
+          departureTime: formatFlightDate(Number(info[3])),
+          departureTimestamp: Number(info[3]),
           status: STATUS_MAP[info[5]],
 
           // Submarkets Data
