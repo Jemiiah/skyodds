@@ -1,13 +1,19 @@
 import { NextResponse } from "next/server";
 import Groq from "groq-sdk";
 
-// Initialize Groq client
-const groq = new Groq({
-  apiKey: process.env.GROQ_API_KEY,
-});
-
+// GROQ_API_KEY is required for analysis
 export async function POST(req: Request) {
   try {
+    const apiKey = process.env.GROQ_API_KEY;
+    if (!apiKey) {
+      return NextResponse.json(
+        { error: "AI Analysis is currently unavailable (Missing API Key)" },
+        { status: 503 }
+      );
+    }
+
+    const groq = new Groq({ apiKey });
+
     const { flightNumber, route, departureTime, odds } = await req.json();
 
     if (!flightNumber) {
